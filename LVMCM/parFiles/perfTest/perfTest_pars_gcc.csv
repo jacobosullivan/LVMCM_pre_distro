@@ -1,0 +1,210 @@
+-Test 0 1 -f /data/home/btx188/gcc/ -tMax 10000
+-Test 1 1 -f /data/home/btx188/gcc/ -tMax 10000
+-Test 2 1 -f /data/home/btx188/gcc/ -tMax 10000
+-Test 3 1 -f /data/home/btx188/gcc/ -tMax 10000
+-Test 4 1 -f /data/home/btx188/gcc/ -tMax 10000
+-Test 5 1 -f /data/home/btx188/gcc/ -tMax 10000
+-Test 6 1 -f /data/home/btx188/gcc/ -tMax 10000
+-Test 7 1 -f /data/home/btx188/gcc/ -tMax 10000
+-Test 8 1 -f /data/home/btx188/gcc/ -tMax 10000
+-Test 9 1 -f /data/home/btx188/gcc/ -tMax 10000
+-Test 0 10 -f /data/home/btx188/gcc/ -tMax 10000
+-Test 1 10 -f /data/home/btx188/gcc/ -tMax 10000
+-Test 2 10 -f /data/home/btx188/gcc/ -tMax 10000
+-Test 3 10 -f /data/home/btx188/gcc/ -tMax 10000
+-Test 4 10 -f /data/home/btx188/gcc/ -tMax 10000
+-Test 5 10 -f /data/home/btx188/gcc/ -tMax 10000
+-Test 6 10 -f /data/home/btx188/gcc/ -tMax 10000
+-Test 7 10 -f /data/home/btx188/gcc/ -tMax 10000
+-Test 8 10 -f /data/home/btx188/gcc/ -tMax 10000
+-Test 9 10 -f /data/home/btx188/gcc/ -tMax 10000
+-Test 0 100 -f /data/home/btx188/gcc/ -tMax 10000
+-Test 1 100 -f /data/home/btx188/gcc/ -tMax 10000
+-Test 2 100 -f /data/home/btx188/gcc/ -tMax 10000
+-Test 3 100 -f /data/home/btx188/gcc/ -tMax 10000
+-Test 4 100 -f /data/home/btx188/gcc/ -tMax 10000
+-Test 5 100 -f /data/home/btx188/gcc/ -tMax 10000
+-Test 6 100 -f /data/home/btx188/gcc/ -tMax 10000
+-Test 7 100 -f /data/home/btx188/gcc/ -tMax 10000
+-Test 8 100 -f /data/home/btx188/gcc/ -tMax 10000
+-Test 9 100 -f /data/home/btx188/gcc/ -tMax 10000
+-Test 0 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 1 -Schwartz 2 100
+-Test 1 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 1 -Schwartz 2 100
+-Test 2 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 1 -Schwartz 2 100
+-Test 3 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 1 -Schwartz 2 100
+-Test 4 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 1 -Schwartz 2 100
+-Test 5 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 1 -Schwartz 2 100
+-Test 6 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 1 -Schwartz 2 100
+-Test 7 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 1 -Schwartz 2 100
+-Test 8 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 1 -Schwartz 2 100
+-Test 9 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 1 -Schwartz 2 100
+-Test 0 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 1 -Schwartz 2 100
+-Test 1 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 1 -Schwartz 2 100
+-Test 2 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 1 -Schwartz 2 100
+-Test 3 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 1 -Schwartz 2 100
+-Test 4 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 1 -Schwartz 2 100
+-Test 5 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 1 -Schwartz 2 100
+-Test 6 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 1 -Schwartz 2 100
+-Test 7 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 1 -Schwartz 2 100
+-Test 8 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 1 -Schwartz 2 100
+-Test 9 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 1 -Schwartz 2 100
+-Test 0 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 1 -Schwartz 2 100
+-Test 1 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 1 -Schwartz 2 100
+-Test 2 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 1 -Schwartz 2 100
+-Test 3 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 1 -Schwartz 2 100
+-Test 4 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 1 -Schwartz 2 100
+-Test 5 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 1 -Schwartz 2 100
+-Test 6 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 1 -Schwartz 2 100
+-Test 7 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 1 -Schwartz 2 100
+-Test 8 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 1 -Schwartz 2 100
+-Test 9 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 1 -Schwartz 2 100
+-Test 0 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 2 -Schwartz 2 100
+-Test 1 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 2 -Schwartz 2 100
+-Test 2 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 2 -Schwartz 2 100
+-Test 3 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 2 -Schwartz 2 100
+-Test 4 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 2 -Schwartz 2 100
+-Test 5 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 2 -Schwartz 2 100
+-Test 6 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 2 -Schwartz 2 100
+-Test 7 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 2 -Schwartz 2 100
+-Test 8 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 2 -Schwartz 2 100
+-Test 9 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 2 -Schwartz 2 100
+-Test 0 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 2 -Schwartz 2 100
+-Test 1 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 2 -Schwartz 2 100
+-Test 2 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 2 -Schwartz 2 100
+-Test 3 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 2 -Schwartz 2 100
+-Test 4 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 2 -Schwartz 2 100
+-Test 5 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 2 -Schwartz 2 100
+-Test 6 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 2 -Schwartz 2 100
+-Test 7 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 2 -Schwartz 2 100
+-Test 8 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 2 -Schwartz 2 100
+-Test 9 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 2 -Schwartz 2 100
+-Test 0 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 2 -Schwartz 2 100
+-Test 1 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 2 -Schwartz 2 100
+-Test 2 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 2 -Schwartz 2 100
+-Test 3 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 2 -Schwartz 2 100
+-Test 4 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 2 -Schwartz 2 100
+-Test 5 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 2 -Schwartz 2 100
+-Test 6 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 2 -Schwartz 2 100
+-Test 7 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 2 -Schwartz 2 100
+-Test 8 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 2 -Schwartz 2 100
+-Test 9 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 2 -Schwartz 2 100
+-Test 0 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 3 -Schwartz 2 100
+-Test 1 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 3 -Schwartz 2 100
+-Test 2 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 3 -Schwartz 2 100
+-Test 3 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 3 -Schwartz 2 100
+-Test 4 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 3 -Schwartz 2 100
+-Test 5 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 3 -Schwartz 2 100
+-Test 6 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 3 -Schwartz 2 100
+-Test 7 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 3 -Schwartz 2 100
+-Test 8 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 3 -Schwartz 2 100
+-Test 9 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 3 -Schwartz 2 100
+-Test 0 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 3 -Schwartz 2 100
+-Test 1 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 3 -Schwartz 2 100
+-Test 2 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 3 -Schwartz 2 100
+-Test 3 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 3 -Schwartz 2 100
+-Test 4 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 3 -Schwartz 2 100
+-Test 5 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 3 -Schwartz 2 100
+-Test 6 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 3 -Schwartz 2 100
+-Test 7 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 3 -Schwartz 2 100
+-Test 8 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 3 -Schwartz 2 100
+-Test 9 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 3 -Schwartz 2 100
+-Test 0 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 3 -Schwartz 2 100
+-Test 1 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 3 -Schwartz 2 100
+-Test 2 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 3 -Schwartz 2 100
+-Test 3 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 3 -Schwartz 2 100
+-Test 4 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 3 -Schwartz 2 100
+-Test 5 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 3 -Schwartz 2 100
+-Test 6 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 3 -Schwartz 2 100
+-Test 7 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 3 -Schwartz 2 100
+-Test 8 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 3 -Schwartz 2 100
+-Test 9 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 3 -Schwartz 2 100
+-Test 0 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 4 -Schwartz 2 100
+-Test 1 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 4 -Schwartz 2 100
+-Test 2 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 4 -Schwartz 2 100
+-Test 3 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 4 -Schwartz 2 100
+-Test 4 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 4 -Schwartz 2 100
+-Test 5 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 4 -Schwartz 2 100
+-Test 6 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 4 -Schwartz 2 100
+-Test 7 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 4 -Schwartz 2 100
+-Test 8 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 4 -Schwartz 2 100
+-Test 9 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 4 -Schwartz 2 100
+-Test 0 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 4 -Schwartz 2 100
+-Test 1 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 4 -Schwartz 2 100
+-Test 2 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 4 -Schwartz 2 100
+-Test 3 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 4 -Schwartz 2 100
+-Test 4 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 4 -Schwartz 2 100
+-Test 5 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 4 -Schwartz 2 100
+-Test 6 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 4 -Schwartz 2 100
+-Test 7 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 4 -Schwartz 2 100
+-Test 8 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 4 -Schwartz 2 100
+-Test 9 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 4 -Schwartz 2 100
+-Test 0 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 4 -Schwartz 2 100
+-Test 1 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 4 -Schwartz 2 100
+-Test 2 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 4 -Schwartz 2 100
+-Test 3 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 4 -Schwartz 2 100
+-Test 4 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 4 -Schwartz 2 100
+-Test 5 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 4 -Schwartz 2 100
+-Test 6 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 4 -Schwartz 2 100
+-Test 7 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 4 -Schwartz 2 100
+-Test 8 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 4 -Schwartz 2 100
+-Test 9 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 4 -Schwartz 2 100
+-Test 0 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 5 -Schwartz 2 100
+-Test 1 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 5 -Schwartz 2 100
+-Test 2 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 5 -Schwartz 2 100
+-Test 3 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 5 -Schwartz 2 100
+-Test 4 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 5 -Schwartz 2 100
+-Test 5 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 5 -Schwartz 2 100
+-Test 6 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 5 -Schwartz 2 100
+-Test 7 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 5 -Schwartz 2 100
+-Test 8 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 5 -Schwartz 2 100
+-Test 9 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 5 -Schwartz 2 100
+-Test 0 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 5 -Schwartz 2 100
+-Test 1 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 5 -Schwartz 2 100
+-Test 2 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 5 -Schwartz 2 100
+-Test 3 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 5 -Schwartz 2 100
+-Test 4 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 5 -Schwartz 2 100
+-Test 5 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 5 -Schwartz 2 100
+-Test 6 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 5 -Schwartz 2 100
+-Test 7 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 5 -Schwartz 2 100
+-Test 8 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 5 -Schwartz 2 100
+-Test 9 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 5 -Schwartz 2 100
+-Test 0 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 5 -Schwartz 2 100
+-Test 1 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 5 -Schwartz 2 100
+-Test 2 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 5 -Schwartz 2 100
+-Test 3 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 5 -Schwartz 2 100
+-Test 4 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 5 -Schwartz 2 100
+-Test 5 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 5 -Schwartz 2 100
+-Test 6 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 5 -Schwartz 2 100
+-Test 7 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 5 -Schwartz 2 100
+-Test 8 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 5 -Schwartz 2 100
+-Test 9 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 5 -Schwartz 2 100
+-Test 0 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 6 -Schwartz 2 100
+-Test 1 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 6 -Schwartz 2 100
+-Test 2 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 6 -Schwartz 2 100
+-Test 3 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 6 -Schwartz 2 100
+-Test 4 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 6 -Schwartz 2 100
+-Test 5 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 6 -Schwartz 2 100
+-Test 6 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 6 -Schwartz 2 100
+-Test 7 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 6 -Schwartz 2 100
+-Test 8 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 6 -Schwartz 2 100
+-Test 9 1 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 6 -Schwartz 2 100
+-Test 0 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 6 -Schwartz 2 100
+-Test 1 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 6 -Schwartz 2 100
+-Test 2 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 6 -Schwartz 2 100
+-Test 3 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 6 -Schwartz 2 100
+-Test 4 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 6 -Schwartz 2 100
+-Test 5 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 6 -Schwartz 2 100
+-Test 6 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 6 -Schwartz 2 100
+-Test 7 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 6 -Schwartz 2 100
+-Test 8 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 6 -Schwartz 2 100
+-Test 9 10 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 6 -Schwartz 2 100
+-Test 0 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 6 -Schwartz 2 100
+-Test 1 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 6 -Schwartz 2 100
+-Test 2 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 6 -Schwartz 2 100
+-Test 3 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 6 -Schwartz 2 100
+-Test 4 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 6 -Schwartz 2 100
+-Test 5 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 6 -Schwartz 2 100
+-Test 6 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 6 -Schwartz 2 100
+-Test 7 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 6 -Schwartz 2 100
+-Test 8 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 6 -Schwartz 2 100
+-Test 9 100 -f /data/home/btx188/gcc/ -tMax 10000 -MPI T -Bisec 6 -Schwartz 2 100

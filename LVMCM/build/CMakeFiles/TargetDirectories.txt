@@ -1,0 +1,3 @@
+/home/jack/gitClones/LVMCM_src/LVMCM/build/CMakeFiles/edit_cache.dir
+/home/jack/gitClones/LVMCM_src/LVMCM/build/CMakeFiles/rebuild_cache.dir
+/home/jack/gitClones/LVMCM_src/LVMCM/build/CMakeFiles/LVMCM.dir

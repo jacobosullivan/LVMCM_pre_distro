@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/jack/gitClones/LVMCM_src/LVMCM/Topography.cpp
+Topography.h
+/home/jack/gitClones/LVMCM_src/LVMCM/Topography.h
+armadillo
+-
+math.h
+-
+
+/home/jack/gitClones/LVMCM_src/LVMCM/Topography.h
+armadillo
+-
+

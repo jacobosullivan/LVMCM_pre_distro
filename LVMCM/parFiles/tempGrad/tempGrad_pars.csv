@@ -1,0 +1,60 @@
+-o 0 tempGrad 0 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -f /data/home/btx188/
+-o 0 tempGrad 1 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -f /data/home/btx188/
+-o 0 tempGrad 2 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -f /data/home/btx188/
+-o 0 tempGrad 3 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -f /data/home/btx188/
+-o 0 tempGrad 4 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -f /data/home/btx188/
+-o 0 tempGrad 5 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -f /data/home/btx188/
+-o 0 tempGrad 6 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -f /data/home/btx188/
+-o 0 tempGrad 7 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -f /data/home/btx188/
+-o 0 tempGrad 8 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -f /data/home/btx188/
+-o 0 tempGrad 9 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -f /data/home/btx188/
+-o 1 tempGrad 0 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 1 -Schwartz 2 100 -f /data/home/btx188/
+-o 1 tempGrad 1 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 1 -Schwartz 2 100 -f /data/home/btx188/
+-o 1 tempGrad 2 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 1 -Schwartz 2 100 -f /data/home/btx188/
+-o 1 tempGrad 3 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 1 -Schwartz 2 100 -f /data/home/btx188/
+-o 1 tempGrad 4 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 1 -Schwartz 2 100 -f /data/home/btx188/
+-o 1 tempGrad 5 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 1 -Schwartz 2 100 -f /data/home/btx188/
+-o 1 tempGrad 6 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 1 -Schwartz 2 100 -f /data/home/btx188/
+-o 1 tempGrad 7 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 1 -Schwartz 2 100 -f /data/home/btx188/
+-o 1 tempGrad 8 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 1 -Schwartz 2 100 -f /data/home/btx188/
+-o 1 tempGrad 9 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 1 -Schwartz 2 100 -f /data/home/btx188/
+-o 2 tempGrad 0 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 2 -Schwartz 2 100 -f /data/home/btx188/
+-o 2 tempGrad 1 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 2 -Schwartz 2 100 -f /data/home/btx188/
+-o 2 tempGrad 2 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 2 -Schwartz 2 100 -f /data/home/btx188/
+-o 2 tempGrad 3 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 2 -Schwartz 2 100 -f /data/home/btx188/
+-o 2 tempGrad 4 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 2 -Schwartz 2 100 -f /data/home/btx188/
+-o 2 tempGrad 5 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 2 -Schwartz 2 100 -f /data/home/btx188/
+-o 2 tempGrad 6 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 2 -Schwartz 2 100 -f /data/home/btx188/
+-o 2 tempGrad 7 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 2 -Schwartz 2 100 -f /data/home/btx188/
+-o 2 tempGrad 8 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 2 -Schwartz 2 100 -f /data/home/btx188/
+-o 2 tempGrad 9 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 2 -Schwartz 2 100 -f /data/home/btx188/
+-o 3 tempGrad 0 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 3 -Schwartz 2 100 -f /data/home/btx188/
+-o 3 tempGrad 1 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 3 -Schwartz 2 100 -f /data/home/btx188/
+-o 3 tempGrad 2 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 3 -Schwartz 2 100 -f /data/home/btx188/
+-o 3 tempGrad 3 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 3 -Schwartz 2 100 -f /data/home/btx188/
+-o 3 tempGrad 4 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 3 -Schwartz 2 100 -f /data/home/btx188/
+-o 3 tempGrad 5 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 3 -Schwartz 2 100 -f /data/home/btx188/
+-o 3 tempGrad 6 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 3 -Schwartz 2 100 -f /data/home/btx188/
+-o 3 tempGrad 7 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 3 -Schwartz 2 100 -f /data/home/btx188/
+-o 3 tempGrad 8 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 3 -Schwartz 2 100 -f /data/home/btx188/
+-o 3 tempGrad 9 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 3 -Schwartz 2 100 -f /data/home/btx188/
+-o 4 tempGrad 0 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 4 -Schwartz 2 100 -f /data/home/btx188/
+-o 4 tempGrad 1 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 4 -Schwartz 2 100 -f /data/home/btx188/
+-o 4 tempGrad 2 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 4 -Schwartz 2 100 -f /data/home/btx188/
+-o 4 tempGrad 3 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 4 -Schwartz 2 100 -f /data/home/btx188/
+-o 4 tempGrad 4 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 4 -Schwartz 2 100 -f /data/home/btx188/
+-o 4 tempGrad 5 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 4 -Schwartz 2 100 -f /data/home/btx188/
+-o 4 tempGrad 6 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 4 -Schwartz 2 100 -f /data/home/btx188/
+-o 4 tempGrad 7 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 4 -Schwartz 2 100 -f /data/home/btx188/
+-o 4 tempGrad 8 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 4 -Schwartz 2 100 -f /data/home/btx188/
+-o 4 tempGrad 9 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 4 -Schwartz 2 100 -f /data/home/btx188/
+-o 5 tempGrad 0 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 5 -Schwartz 2 100 -f /data/home/btx188/
+-o 5 tempGrad 1 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 5 -Schwartz 2 100 -f /data/home/btx188/
+-o 5 tempGrad 2 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 5 -Schwartz 2 100 -f /data/home/btx188/
+-o 5 tempGrad 3 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 5 -Schwartz 2 100 -f /data/home/btx188/
+-o 5 tempGrad 4 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 5 -Schwartz 2 100 -f /data/home/btx188/
+-o 5 tempGrad 5 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 5 -Schwartz 2 100 -f /data/home/btx188/
+-o 5 tempGrad 6 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 5 -Schwartz 2 100 -f /data/home/btx188/
+-o 5 tempGrad 7 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 5 -Schwartz 2 100 -f /data/home/btx188/
+-o 5 tempGrad 8 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 5 -Schwartz 2 100 -f /data/home/btx188/
+-o 5 tempGrad 9 -N 128 -Phi 1 -invMax 10000 -disp 0.01 0.5 -c_ij 0.5 0.5 -var_e 0.01 -g 1.0 -MPI T -Bisec 5 -Schwartz 2 100 -f /data/home/btx188/

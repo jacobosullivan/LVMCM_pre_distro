@@ -1,0 +1,724 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
+    <generated>
+      <config projectName="LVMCM" targetName="LVMCM" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" GENERATION_DIR="build" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b347596b-e72d-404e-817b-6b8577d4d170" name="Default Changelist" comment="" />
+    <ignored path="$PROJECT_DIR$/buildLocal/" />
+    <ignored path="$PROJECT_DIR$/build/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="FUSProjectUsageTrigger">
+    <session id="-494902599">
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="GDB" value="409" />
+          <entry key="cc" value="11" />
+          <entry key="cpp" value="18176" />
+          <entry key="h" value="577" />
+          <entry key="sh" value="8" />
+          <entry key="txt" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="CMakeLists.txt" value="2" />
+          <entry key="Doxygen file" value="2" />
+          <entry key="GDBCommands" value="409" />
+          <entry key="ObjectiveC" value="18762" />
+          <entry key="PLAIN_TEXT" value="8" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="16" />
+          <entry key="project.open.time.10" value="3" />
+          <entry key="project.open.time.11" value="2" />
+          <entry key="project.open.time.14" value="1" />
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.3" value="1" />
+          <entry key="project.open.time.6" value="2" />
+          <entry key="project.open.time.7" value="5" />
+          <entry key="project.open.time.8" value="9" />
+          <entry key="project.open.time.9" value="7" />
+          <entry key="project.opened" value="31" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="SETC (disassembly)" value="21" />
+          <entry key="cc" value="10" />
+          <entry key="cpp" value="20" />
+          <entry key="h" value="36" />
+          <entry key="hpp" value="9" />
+          <entry key="md" value="1" />
+          <entry key="sh" value="1" />
+          <entry key="txt" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CMakeLists.txt" value="3" />
+          <entry key="Disassembly" value="21" />
+          <entry key="ObjectiveC" value="75" />
+          <entry key="PLAIN_TEXT" value="2" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Topography.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="174">
+              <caret line="81" selection-start-line="81" selection-end-line="81" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Metacommunity.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2137">
+              <caret line="647" column="30" selection-start-line="647" selection-start-column="30" selection-end-line="647" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Species.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-4791">
+              <caret line="504" column="21" selection-start-line="504" selection-start-column="21" selection-end-line="504" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CommunityDynamics.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3944">
+              <caret line="202" column="29" selection-start-line="202" selection-start-column="29" selection-end-line="202" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file:///usr/include/armadillo_bits/SpMat_meat.hpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="874" selection-start-line="874" selection-end-line="874" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Species.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="449">
+              <caret line="61" selection-start-line="61" selection-end-line="61" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Metacommunity.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="448">
+              <caret line="205" column="2" selection-start-line="49" selection-end-line="205" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CommunityDynamics.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="85" column="62" selection-start-line="85" selection-start-column="62" selection-end-line="85" selection-end-column="62" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="415">
+              <caret line="226" column="39" selection-start-line="226" selection-start-column="39" selection-end-line="226" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Topography.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="449">
+              <caret line="85" selection-start-line="85" selection-end-line="85" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>genAdj</find>
+      <find>genNetwork\(</find>
+      <find>outputDa</find>
+      <find>importData</find>
+      <find>genAdjMat</find>
+      <find>extinct</find>
+      <find>a_omega</find>
+      <find>omega</find>
+      <find>subDom</find>
+      <find>newFolder</find>
+      <find>warming</find>
+      <find>build</find>
+      <find>invaderTest</find>
+      <find>invaderSample</find>
+      <find>invade</find>
+      <find>emMat</find>
+      <find>metaCDynamics</find>
+      <find>meta</find>
+      <find>invade\(</find>
+      <find>invaderSam</find>
+      <find>a_gabriel</find>
+      <find>a_discr_c_ij</find>
+      <find>discr</find>
+      <find>outputData</find>
+      <find>a_discr_c_ijf</find>
+      <find>a_connectance</find>
+      <find>genDisp</find>
+      <find>genAd</find>
+      <find>randGraph</find>
+      <find>genNetwork</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>LVMCM</replace>
+      <replace>invMax</replace>
+      <replace>filename</replace>
+      <replace>fexist</replace>
+      <replace>fullPath</replace>
+      <replace>directory</replace>
+      <replace>sigma</replace>
+      <replace>metaSub.sppPool.landscape.fVec</replace>
+      <replace>metaSub.sppPool.landscape.adjIF</replace>
+      <replace>bMatFileName</replace>
+      <replace>a_</replace>
+      <replace>serial</replace>
+      <replace>sppPool.S_c</replace>
+      <replace>outputDirectory</replace>
+      <replace>sppPool.landscape.envMat</replace>
+      <replace>envMat</replace>
+      <replace>landscape.envMat</replace>
+      <replace>//</replace>
+      <replace>relaxT</replace>
+      <replace>genRVec</replace>
+      <replace>.</replace>
+      <replace>mpi_time1</replace>
+      <replace>fluctuations</replace>
+      <replace>mpi_time2</replace>
+      <replace>topo</replace>
+      <replace>sppPool.S_p</replace>
+      <replace>invEvent</replace>
+      <replace>netMPI</replace>
+      <replace>pert_record</replace>
+      <replace>omega</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Metacommunity.h" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/cMake.sh" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/LVMCM_rng.h" />
+        <option value="$PROJECT_DIR$/LVMCM_rng.cpp" />
+        <option value="$PROJECT_DIR$/ODE.h" />
+        <option value="$PROJECT_DIR$/ODE.cc" />
+        <option value="$PROJECT_DIR$/error.h" />
+        <option value="$PROJECT_DIR$/error.cc" />
+        <option value="$PROJECT_DIR$/Topography.h" />
+        <option value="$PROJECT_DIR$/Metacommunity.h" />
+        <option value="$PROJECT_DIR$/CommunityDynamics.cpp" />
+        <option value="$PROJECT_DIR$/Metacommunity.cpp" />
+        <option value="$PROJECT_DIR$/CommunityDynamics.h" />
+        <option value="$PROJECT_DIR$/Species.h" />
+        <option value="$PROJECT_DIR$/Species.cpp" />
+        <option value="$PROJECT_DIR$/main.cpp" />
+        <option value="$PROJECT_DIR$/Topography.cpp" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="98" />
+    <option name="y" value="35" />
+    <option name="width" value="1231" />
+    <option name="height" value="1565" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="LVMCM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LVMCM" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../LVMCM_pre_distro/LVMCM" />
+    <property name="settings.editor.selected.configurable" value="CMakeSettings" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.SETC">
+    <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SETC" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-o 1 test 1 -N 16 -Phi 10 -invMax 1000 -disp 0.0001 0.5 -c_ij 0.3 0.3 -C F -pProd 0.5 -rho 0.1 -F 3 -a 1e-7 -var_e 0.01 -tMax 500 -z F -O T" PASS_PARENT_ENVS_2="true" PROJECT_NAME="LVMCM" TARGET_NAME="LVMCM" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LVMCM" RUN_TARGET_NAME="LVMCM">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Build All" />
+      <item itemvalue="Application.SETC" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b347596b-e72d-404e-817b-6b8577d4d170" name="Default Changelist" comment="" />
+      <created>1550248922594</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1550248922594</updated>
+      <workItem from="1550248924757" duration="835000" />
+      <workItem from="1550487553841" duration="348000" />
+      <workItem from="1550589214799" duration="7057000" />
+      <workItem from="1550614578219" duration="4231000" />
+      <workItem from="1550675298904" duration="653000" />
+      <workItem from="1553072317046" duration="759000" />
+      <workItem from="1553180986457" duration="1290000" />
+      <workItem from="1553520932580" duration="14183000" />
+      <workItem from="1553536216280" duration="623000" />
+      <workItem from="1553601687478" duration="23000" />
+      <workItem from="1553601787574" duration="1935000" />
+      <workItem from="1553613630648" duration="6025000" />
+      <workItem from="1553704322959" duration="7140000" />
+      <workItem from="1553712193139" duration="795000" />
+      <workItem from="1553714645827" duration="3584000" />
+      <workItem from="1553728421170" duration="2478000" />
+      <workItem from="1553731301257" duration="6455000" />
+      <workItem from="1553774695370" duration="15735000" />
+      <workItem from="1553869832529" duration="7326000" />
+      <workItem from="1553966104777" duration="2697000" />
+      <workItem from="1554043719667" duration="2158000" />
+      <workItem from="1554046932442" duration="72000" />
+      <workItem from="1554047350331" duration="814000" />
+      <workItem from="1554113352205" duration="13234000" />
+      <workItem from="1554188953704" duration="12836000" />
+      <workItem from="1554209622180" duration="4559000" />
+      <workItem from="1554216532951" duration="10129000" />
+      <workItem from="1554288950630" duration="10360000" />
+      <workItem from="1554309565442" duration="5683000" />
+      <workItem from="1554315340574" duration="3444000" />
+      <workItem from="1554365640837" duration="16328000" />
+      <workItem from="1554395686472" duration="818000" />
+      <workItem from="1554451730756" duration="16982000" />
+      <workItem from="1554711465644" duration="12660000" />
+      <workItem from="1554758521663" duration="3729000" />
+      <workItem from="1554793161189" duration="3440000" />
+      <workItem from="1554800214790" duration="9482000" />
+      <workItem from="1554890490269" duration="17901000" />
+      <workItem from="1554966729743" duration="7428000" />
+      <workItem from="1554974825062" duration="15361000" />
+      <workItem from="1555404154128" duration="402000" />
+      <workItem from="1555412671229" duration="651000" />
+      <workItem from="1555413930373" duration="3393000" />
+      <workItem from="1555498756484" duration="1650000" />
+      <workItem from="1555525867929" duration="780000" />
+      <workItem from="1555581271951" duration="5087000" />
+      <workItem from="1555687083463" duration="2655000" />
+      <workItem from="1555765636571" duration="6015000" />
+      <workItem from="1555776563141" duration="18000" />
+      <workItem from="1555937628909" duration="93000" />
+      <workItem from="1555944146861" duration="8518000" />
+      <workItem from="1556009760432" duration="887000" />
+      <workItem from="1556020085059" duration="5453000" />
+      <workItem from="1556040506043" duration="5524000" />
+      <workItem from="1556099316679" duration="1077000" />
+      <workItem from="1556114550668" duration="10038000" />
+      <workItem from="1556882932305" duration="135000" />
+      <workItem from="1557047010106" duration="17486000" />
+      <workItem from="1557137071604" duration="17793000" />
+      <workItem from="1557186931275" duration="2949000" />
+      <workItem from="1557232608048" duration="8394000" />
+      <workItem from="1557304629111" duration="6229000" />
+      <workItem from="1557317953078" duration="13876000" />
+      <workItem from="1557345297546" duration="1288000" />
+      <workItem from="1557408179682" duration="5176000" />
+      <workItem from="1557490312276" duration="1379000" />
+      <workItem from="1557505211657" duration="602000" />
+      <workItem from="1557749317282" duration="4544000" />
+      <workItem from="1557837993355" duration="2119000" />
+      <workItem from="1558087375927" duration="2492000" />
+      <workItem from="1558446741354" duration="249000" />
+      <workItem from="1559134391274" duration="1355000" />
+      <workItem from="1559229368754" duration="129000" />
+      <workItem from="1559229528775" duration="632000" />
+      <workItem from="1559295996289" duration="2597000" />
+      <workItem from="1559310300248" duration="10225000" />
+      <workItem from="1559748501728" duration="906000" />
+      <workItem from="1560441713100" duration="671000" />
+      <workItem from="1560443947039" duration="9000" />
+      <workItem from="1560444055333" duration="1116000" />
+      <workItem from="1560773301783" duration="663000" />
+      <workItem from="1560786717563" duration="43000" />
+      <workItem from="1561019784135" duration="1252000" />
+      <workItem from="1562680341302" duration="1261000" />
+      <workItem from="1562781212281" duration="914000" />
+      <workItem from="1562943916930" duration="434000" />
+      <workItem from="1563271908587" duration="1422000" />
+      <workItem from="1563528873831" duration="11186000" />
+      <workItem from="1563798367598" duration="926000" />
+      <workItem from="1563970026655" duration="768000" />
+      <workItem from="1564414566808" duration="1118000" />
+      <workItem from="1564477381118" duration="1697000" />
+      <workItem from="1564559642375" duration="1203000" />
+      <workItem from="1564656040436" duration="1725000" />
+      <workItem from="1564664671581" duration="8316000" />
+      <workItem from="1564738675473" duration="12458000" />
+      <workItem from="1564755718784" duration="4684000" />
+      <workItem from="1565022494130" duration="2142000" />
+      <workItem from="1565175472194" duration="2087000" />
+      <workItem from="1565254084903" duration="5455000" />
+      <workItem from="1565260912612" duration="3486000" />
+      <workItem from="1565344586192" duration="6882000" />
+      <workItem from="1565366595490" duration="989000" />
+      <workItem from="1565698389536" duration="3478000" />
+      <workItem from="1565715868709" duration="1917000" />
+      <workItem from="1565770666976" duration="17191000" />
+      <workItem from="1565861593933" duration="15806000" />
+      <workItem from="1565946485016" duration="1297000" />
+      <workItem from="1566297767085" duration="705000" />
+      <workItem from="1566300495683" duration="704000" />
+      <workItem from="1571823145316" duration="654000" />
+      <workItem from="1572534252652" duration="8932000" />
+      <workItem from="1572610194890" duration="6881000" />
+      <workItem from="1572884703113" duration="4674000" />
+      <workItem from="1572973651406" duration="1047000" />
+      <workItem from="1573055197138" duration="18000" />
+      <workItem from="1574671277665" duration="3395000" />
+      <workItem from="1574774327781" duration="1709000" />
+      <workItem from="1574795038534" duration="341000" />
+      <workItem from="1574796763486" duration="1785000" />
+      <workItem from="1574843728924" duration="571000" />
+      <workItem from="1576163658423" duration="128000" />
+      <workItem from="1576488664647" duration="3924000" />
+      <workItem from="1577089243063" duration="647000" />
+      <workItem from="1577204162110" duration="2039000" />
+      <workItem from="1577441577395" duration="7710000" />
+      <workItem from="1578910062187" duration="21044000" />
+      <workItem from="1578992390431" duration="10521000" />
+      <workItem from="1579014510244" duration="637000" />
+      <workItem from="1579105184138" duration="1533000" />
+      <workItem from="1579253390047" duration="2027000" />
+      <workItem from="1579524417385" duration="178000" />
+      <workItem from="1579784448871" duration="2215000" />
+      <workItem from="1579794009971" duration="2778000" />
+      <workItem from="1579877838533" duration="1262000" />
+      <workItem from="1580138437865" duration="5910000" />
+      <workItem from="1580202482569" duration="20649000" />
+      <workItem from="1580290530945" duration="599000" />
+      <workItem from="1580295852419" duration="84000" />
+      <workItem from="1580299240783" duration="13257000" />
+      <workItem from="1580324487718" duration="4806000" />
+      <workItem from="1580379789116" duration="6656000" />
+      <workItem from="1580396304793" duration="8448000" />
+      <workItem from="1580459299853" duration="17157000" />
+      <workItem from="1580478284377" duration="7068000" />
+      <workItem from="1580729532211" duration="11916000" />
+      <workItem from="1580743526991" duration="11294000" />
+      <workItem from="1580806730224" duration="5217000" />
+      <workItem from="1580818135425" duration="5401000" />
+      <workItem from="1581062283680" duration="11852000" />
+      <workItem from="1581268585603" duration="725000" />
+      <workItem from="1581269524667" duration="3207000" />
+      <workItem from="1581326397275" duration="5604000" />
+      <workItem from="1581433862577" duration="1286000" />
+      <workItem from="1581503589806" duration="610000" />
+      <workItem from="1581596885327" duration="780000" />
+      <workItem from="1581965603425" duration="792000" />
+      <workItem from="1581966626079" duration="5033000" />
+      <workItem from="1582017234929" duration="4989000" />
+      <workItem from="1582032635648" duration="742000" />
+      <workItem from="1582066099295" duration="1474000" />
+      <workItem from="1582102156896" duration="1838000" />
+      <workItem from="1582122889671" duration="7365000" />
+      <workItem from="1582201217979" duration="599000" />
+      <workItem from="1582293662826" duration="16415000" />
+      <workItem from="1582711350556" duration="1758000" />
+      <workItem from="1582716015059" duration="1567000" />
+      <workItem from="1582885412408" duration="5878000" />
+      <workItem from="1582906533098" duration="865000" />
+      <workItem from="1584961174740" duration="7962000" />
+      <workItem from="1584987195152" duration="1361000" />
+      <workItem from="1585070631293" duration="422000" />
+      <workItem from="1585071754250" duration="2413000" />
+      <workItem from="1585132136666" duration="6532000" />
+      <workItem from="1585139224792" duration="5254000" />
+      <workItem from="1585233604753" duration="7240000" />
+      <workItem from="1585300903339" duration="6197000" />
+      <workItem from="1585386802168" duration="3958000" />
+      <workItem from="1585488839295" duration="6120000" />
+      <workItem from="1585558410643" duration="5388000" />
+      <workItem from="1585642792393" duration="24307000" />
+      <workItem from="1585743107220" duration="357000" />
+      <workItem from="1585744688560" duration="6034000" />
+      <workItem from="1585834888047" duration="254000" />
+      <workItem from="1585839350933" duration="3975000" />
+      <workItem from="1585904593676" duration="11494000" />
+      <workItem from="1586163498691" duration="662000" />
+      <workItem from="1586168397421" duration="62000" />
+      <workItem from="1586333346172" duration="7967000" />
+      <workItem from="1586369660323" duration="706000" />
+      <workItem from="1586521406213" duration="4574000" />
+      <workItem from="1586690319151" duration="9387000" />
+      <workItem from="1586769882293" duration="19585000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="179328000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="98" y="35" width="2462" height="1565" extended-state="6" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1588037" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3294979" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49908313" weight="0.37867078" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49969438" weight="0.3724884" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49969438" weight="0.32635984" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.4974726" visible="true" weight="0.3771252" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50252736" side_tool="true" weight="0.3763524" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32792887" />
+      <window_info anchor="bottom" id="CMake" order="11" weight="0.32766616" />
+      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49789384" weight="0.41731066" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file:///usr/include/c++/7/bits/stl_vector.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23896">
+          <caret line="824" selection-start-line="824" selection-end-line="824" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cMake.sh" />
+    <entry file="file://$PROJECT_DIR$/example.md" />
+    <entry file="file://$PROJECT_DIR$/main_as_perf.cpp" />
+    <entry file="file://$PROJECT_DIR$/LVMCM_rng.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="19" column="120" selection-start-line="19" selection-start-column="120" selection-end-line="19" selection-end-column="120" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LVMCM_rng.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="19" column="120" selection-start-line="19" selection-end-line="19" selection-end-column="120" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ODE.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="19" column="120" selection-start-line="19" selection-start-column="120" selection-end-line="19" selection-end-column="120" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/armadillo_bits/Mat_meat.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158833">
+          <caret line="5477" selection-start-line="5477" selection-end-line="5477" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/error.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="19" column="120" selection-start-line="19" selection-start-column="120" selection-end-line="19" selection-end-column="120" />
+          <folding>
+            <element signature="e#750#769#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/error.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="19" column="120" selection-start-line="19" selection-start-column="120" selection-end-line="19" selection-end-column="120" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/armadillo_bits/debug.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="657">
+          <caret line="143" selection-start-line="143" selection-end-line="143" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ODE.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="831" selection-start-line="831" selection-end-line="831" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/armadillo_bits/SpMat_meat.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="874" selection-start-line="874" selection-end-line="874" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Topography.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="85" selection-start-line="85" selection-end-line="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CommunityDynamics.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="85" column="62" selection-start-line="85" selection-start-column="62" selection-end-line="85" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CommunityDynamics.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3944">
+          <caret line="202" column="29" selection-start-line="202" selection-start-column="29" selection-end-line="202" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Metacommunity.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2137">
+          <caret line="647" column="30" selection-start-line="647" selection-start-column="30" selection-end-line="647" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Species.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="61" selection-start-line="61" selection-end-line="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Metacommunity.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="205" column="2" selection-start-line="49" selection-end-line="205" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Species.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4791">
+          <caret line="504" column="21" selection-start-line="504" selection-start-column="21" selection-end-line="504" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="226" column="39" selection-start-line="226" selection-start-column="39" selection-end-line="226" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Topography.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="81" selection-start-line="81" selection-end-line="81" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
