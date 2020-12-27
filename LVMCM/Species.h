@@ -57,34 +57,36 @@ public:
     double dispL; // dispersal length
     double thresh = 1e-4; // detection/extinction threshold
     double sigma_t = 0.05; // standard deviation of Ohrstein-Uhlenbeck process
-    double t_niche = 10.0; // parameter controlling the width of the temperature niche
-    double a_connectance = 0.05; // connectance of trophic link matrix
-
+    double omega = 0.5; // parameter controlling the width of the temperature niche
+    double delta_g = 2.0; // (0.5x) proprtional difference between range in environmental and environmental optima
+    double sigma_r = 0.25; // standard deviation of white noise added to quadratic environmental response function
     // switches
     bool prodComp = true; // select producer competition on/off
     bool discr_c_ij = true; // select discrete/continuous c_ij
+    bool symComp = false; // select symmetric competition
+    int dispNorm = 0; // effort (0), degree normalized (1) or passive dispersal (2)
 
     // matrix objects
     mat bMat_p; // PxN biomass matrix - producers
-    mat bMat_c; // CxN biomass matrix - consumers
     mat bavMat_p; // PxN biomass average matrix - producers
-    mat bavMat_c; // CxN biomass average matrix - consumers
+//    mat bavMat_c; // CxN biomass average matrix - consumers
     mat bMat_p_src; // PxN biomass matrix - producers, source only
-    mat bMat_c_src; // CxN biomass matrix - consumers, source only
+//    mat bMat_c_src; // CxN biomass matrix - consumers, source only
     mat rMat; // PxN r matrix - producers
     mat sMat; // PxN r matrix ignoring temperature dependence - producers
     mat cMat; // PxP competitive overlap matrix - producers
-    mat aMat; // PxC feeding interaction matrix
+//    mat aMat; // PxC feeding interaction matrix
     mat uMat_p; // fixed unknowns - producers
-    mat uMat_c; // fixed unknowns - consumers
+//    mat uMat_c; // fixed unknowns - consumers
     mat tMat; // environmental tolerances for explicit aboitic modelling
     mat dMat_n; // (sub)domain dispersal matrix
     mat dMat_m; // inter-subdomain dispersal matrix
     mat emMat_p; // species specific emigration rates - producers
-    mat emMat_c; // species specific emigration rates - consumers
+//    mat emMat_c; // species specific emigration rates - consumers
     mat ouMat; // Ohrstein-Uhlenback process
     mat efMat; // environmental fluctuations centred on 0 for perturbing R
     vec bias; // species specific bias of environmental fluctuation
+    mat gMat; // Sxl matrix of species environmental optima
 
     // storage objects
     mat trajectories; // matrix that will store the trajectories for analysis
@@ -97,11 +99,16 @@ public:
     int inv0 = 0; // record number invasions at import
     int S_p = 0; // producer species richness
     int S_c = 0; // consumer species richness
+    int I_p = 0; // counter for multispecies invasions
+    int I_c = 0; // counter for multispecies invasions
 
 // methods
     // species modelling
     void genDispMat(); // generate dispersal matrix
     mat genRVec(rowvec zVecExt = {}); // generate a spatially correlated random field of maximum internal growth rates, random variables can be passed from outside
+    mat genRVecTemp(); // generate a spatially correlated random field mapped onto the output of a temperature response function
+    mat genRVecQuad(); // generate growth rate vector based on quadratic environmental response function
+    void updateRVecTemp(); // regenerate internal growth rate matrix after discrete warming event
     void ouProcess(); // updates efMat for modelling temporal abiotic turnover of temporal autocorrelation sigma_t, and bias mu
     mat genRVecERF(); // generate random specific environmental tolerance vector (outcome of implicit Environmental Response Function) and use to generate r_i
     void invade(int trophLev, bool test = true); // add new producer (trophLev=0) or cosumer (1) to specified 'port' patch
@@ -116,3 +123,7 @@ public:
 };
 
 #endif //SETC_SPECIES_H
+
+// Local Variables:
+// c-file-style: "stroustrup"
+// End:

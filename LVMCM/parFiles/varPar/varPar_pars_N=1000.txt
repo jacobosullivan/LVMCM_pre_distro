@@ -1,0 +1,61 @@
+-C F -p 1 -d 1e-1 1e-2 -sk 5 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 1 varParD 0 -f /data/SBCS-RossbergLab/jack/post_doc/
+-C F -p 1 -d 1e-1 1e-2 -sk 5 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 1 varParD 1 -f /data/SBCS-RossbergLab/jack/post_doc/
+-C F -p 1 -d 1e-1 1e-2 -sk 5 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 1 varParD 2 -f /data/SBCS-RossbergLab/jack/post_doc/
+-C F -p 1 -d 1e-1 1e-2 -sk 5 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 1 varParD 3 -f /data/SBCS-RossbergLab/jack/post_doc/
+-C F -p 1 -d 1e-1 1e-2 -sk 5 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 1 varParD 4 -f /data/SBCS-RossbergLab/jack/post_doc/
+-C F -p 1 -d 1e-1 1e-2 -sk 50 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 2 varParD 0 -f /data/SBCS-RossbergLab/jack/post_doc/
+-C F -p 1 -d 1e-1 1e-2 -sk 50 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 2 varParD 1 -f /data/SBCS-RossbergLab/jack/post_doc/
+-C F -p 1 -d 1e-1 1e-2 -sk 50 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 2 varParD 2 -f /data/SBCS-RossbergLab/jack/post_doc/
+-C F -p 1 -d 1e-1 1e-2 -sk 50 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 2 varParD 3 -f /data/SBCS-RossbergLab/jack/post_doc/
+-C F -p 1 -d 1e-1 1e-2 -sk 50 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 2 varParD 4 -f /data/SBCS-RossbergLab/jack/post_doc/
+-C F -p 1 -d 1e-1 1e2 -sk 5 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 3 varParD 0 -f /data/SBCS-RossbergLab/jack/post_doc/
+-C F -p 1 -d 1e-1 1e2 -sk 5 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 3 varParD 1 -f /data/SBCS-RossbergLab/jack/post_doc/
+-C F -p 1 -d 1e-1 1e2 -sk 5 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 3 varParD 2 -f /data/SBCS-RossbergLab/jack/post_doc/
+-C F -p 1 -d 1e-1 1e2 -sk 5 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 3 varParD 3 -f /data/SBCS-RossbergLab/jack/post_doc/
+-C F -p 1 -d 1e-1 1e2 -sk 5 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 3 varParD 4 -f /data/SBCS-RossbergLab/jack/post_doc/
+-C F -p 1 -d 1e-1 1e2 -sk 50 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 4 varParD 0 -f /data/SBCS-RossbergLab/jack/post_doc/
+-C F -p 1 -d 1e-1 1e2 -sk 50 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 4 varParD 1 -f /data/SBCS-RossbergLab/jack/post_doc/
+-C F -p 1 -d 1e-1 1e2 -sk 50 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 4 varParD 2 -f /data/SBCS-RossbergLab/jack/post_doc/
+-C F -p 1 -d 1e-1 1e2 -sk 50 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 4 varParD 3 -f /data/SBCS-RossbergLab/jack/post_doc/
+-C F -p 1 -d 1e-1 1e2 -sk 50 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 4 varParD 4 -f /data/SBCS-RossbergLab/jack/post_doc/
+-c 1.0 0.2 -p 1 -d 1e-1 1e-2 -sk 5 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 5 varParD 0 -f /data/SBCS-RossbergLab/jack/post_doc/
+-c 1.0 0.2 -p 1 -d 1e-1 1e-2 -sk 5 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 5 varParD 1 -f /data/SBCS-RossbergLab/jack/post_doc/
+-c 1.0 0.2 -p 1 -d 1e-1 1e-2 -sk 5 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 5 varParD 2 -f /data/SBCS-RossbergLab/jack/post_doc/
+-c 1.0 0.2 -p 1 -d 1e-1 1e-2 -sk 5 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 5 varParD 3 -f /data/SBCS-RossbergLab/jack/post_doc/
+-c 1.0 0.2 -p 1 -d 1e-1 1e-2 -sk 5 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 5 varParD 4 -f /data/SBCS-RossbergLab/jack/post_doc/
+-c 1.0 0.2 -p 1 -d 1e-1 1e-2 -sk 50 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 6 varParD 0 -f /data/SBCS-RossbergLab/jack/post_doc/
+-c 1.0 0.2 -p 1 -d 1e-1 1e-2 -sk 50 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 6 varParD 1 -f /data/SBCS-RossbergLab/jack/post_doc/
+-c 1.0 0.2 -p 1 -d 1e-1 1e-2 -sk 50 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 6 varParD 2 -f /data/SBCS-RossbergLab/jack/post_doc/
+-c 1.0 0.2 -p 1 -d 1e-1 1e-2 -sk 50 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 6 varParD 3 -f /data/SBCS-RossbergLab/jack/post_doc/
+-c 1.0 0.2 -p 1 -d 1e-1 1e-2 -sk 50 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 6 varParD 4 -f /data/SBCS-RossbergLab/jack/post_doc/
+-c 1.0 0.2 -p 1 -d 1e-1 1e2 -sk 5 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 7 varParD 0 -f /data/SBCS-RossbergLab/jack/post_doc/
+-c 1.0 0.2 -p 1 -d 1e-1 1e2 -sk 5 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 7 varParD 1 -f /data/SBCS-RossbergLab/jack/post_doc/
+-c 1.0 0.2 -p 1 -d 1e-1 1e2 -sk 5 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 7 varParD 2 -f /data/SBCS-RossbergLab/jack/post_doc/
+-c 1.0 0.2 -p 1 -d 1e-1 1e2 -sk 5 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 7 varParD 3 -f /data/SBCS-RossbergLab/jack/post_doc/
+-c 1.0 0.2 -p 1 -d 1e-1 1e2 -sk 5 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 7 varParD 4 -f /data/SBCS-RossbergLab/jack/post_doc/
+-c 1.0 0.2 -p 1 -d 1e-1 1e2 -sk 50 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 8 varParD 0 -f /data/SBCS-RossbergLab/jack/post_doc/
+-c 1.0 0.2 -p 1 -d 1e-1 1e2 -sk 50 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 8 varParD 1 -f /data/SBCS-RossbergLab/jack/post_doc/
+-c 1.0 0.2 -p 1 -d 1e-1 1e2 -sk 50 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 8 varParD 2 -f /data/SBCS-RossbergLab/jack/post_doc/
+-c 1.0 0.2 -p 1 -d 1e-1 1e2 -sk 50 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 8 varParD 3 -f /data/SBCS-RossbergLab/jack/post_doc/
+-c 1.0 0.2 -p 1 -d 1e-1 1e2 -sk 50 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 8 varParD 4 -f /data/SBCS-RossbergLab/jack/post_doc/
+-c 1.0 0.5 -p 1 -d 1e-1 1e-2 -sk 5 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 9 varParD 0 -f /data/SBCS-RossbergLab/jack/post_doc/
+-c 1.0 0.5 -p 1 -d 1e-1 1e-2 -sk 5 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 9 varParD 1 -f /data/SBCS-RossbergLab/jack/post_doc/
+-c 1.0 0.5 -p 1 -d 1e-1 1e-2 -sk 5 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 9 varParD 2 -f /data/SBCS-RossbergLab/jack/post_doc/
+-c 1.0 0.5 -p 1 -d 1e-1 1e-2 -sk 5 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 9 varParD 3 -f /data/SBCS-RossbergLab/jack/post_doc/
+-c 1.0 0.5 -p 1 -d 1e-1 1e-2 -sk 5 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 9 varParD 4 -f /data/SBCS-RossbergLab/jack/post_doc/
+-c 1.0 0.5 -p 1 -d 1e-1 1e-2 -sk 50 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 10 varParD 0 -f /data/SBCS-RossbergLab/jack/post_doc/
+-c 1.0 0.5 -p 1 -d 1e-1 1e-2 -sk 50 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 10 varParD 1 -f /data/SBCS-RossbergLab/jack/post_doc/
+-c 1.0 0.5 -p 1 -d 1e-1 1e-2 -sk 50 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 10 varParD 2 -f /data/SBCS-RossbergLab/jack/post_doc/
+-c 1.0 0.5 -p 1 -d 1e-1 1e-2 -sk 50 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 10 varParD 3 -f /data/SBCS-RossbergLab/jack/post_doc/
+-c 1.0 0.5 -p 1 -d 1e-1 1e-2 -sk 50 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 10 varParD 4 -f /data/SBCS-RossbergLab/jack/post_doc/
+-c 1.0 0.5 -p 1 -d 1e-1 1e2 -sk 5 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 11 varParD 0 -f /data/SBCS-RossbergLab/jack/post_doc/
+-c 1.0 0.5 -p 1 -d 1e-1 1e2 -sk 5 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 11 varParD 1 -f /data/SBCS-RossbergLab/jack/post_doc/
+-c 1.0 0.5 -p 1 -d 1e-1 1e2 -sk 5 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 11 varParD 2 -f /data/SBCS-RossbergLab/jack/post_doc/
+-c 1.0 0.5 -p 1 -d 1e-1 1e2 -sk 5 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 11 varParD 3 -f /data/SBCS-RossbergLab/jack/post_doc/
+-c 1.0 0.5 -p 1 -d 1e-1 1e2 -sk 5 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 11 varParD 4 -f /data/SBCS-RossbergLab/jack/post_doc/
+-c 1.0 0.5 -p 1 -d 1e-1 1e2 -sk 50 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 12 varParD 0 -f /data/SBCS-RossbergLab/jack/post_doc/
+-c 1.0 0.5 -p 1 -d 1e-1 1e2 -sk 50 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 12 varParD 1 -f /data/SBCS-RossbergLab/jack/post_doc/
+-c 1.0 0.5 -p 1 -d 1e-1 1e2 -sk 50 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 12 varParD 2 -f /data/SBCS-RossbergLab/jack/post_doc/
+-c 1.0 0.5 -p 1 -d 1e-1 1e2 -sk 50 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 12 varParD 3 -f /data/SBCS-RossbergLab/jack/post_doc/
+-c 1.0 0.5 -p 1 -d 1e-1 1e2 -sk 50 -g 20 -n 1000 -x /data/home/btx188/LVMCM_src_quad/LVMCM/fitNetwork/X_Leibold2020.mat -o 12 varParD 4 -f /data/SBCS-RossbergLab/jack/post_doc/
+

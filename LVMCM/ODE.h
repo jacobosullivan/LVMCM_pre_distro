@@ -194,7 +194,6 @@ class ODE_state : public ODE_vector{
   linear_solver_t linear_solver;
   void * bp_data;
  public:
-  ODE_matrix Jacobian_memory;
   ODE_dynamical_object * the_dynamics;
  private:
   ODE_state():the_start_time(dummy_real){FATAL_ERROR("cannot use default constructor");};
@@ -241,7 +240,6 @@ class fixed_point_analyzer : public ODE_vector{
   ODE_vector lower_bound;
   double lower_bound_shift;
 public:
-  ODE_matrix Jacobian_memory;
   ODE_dynamical_object * the_dynamics;
   typedef std::pair<ODE_dynamical_object *,ODE_vector *> user_data_t;
 private:
@@ -269,3 +267,7 @@ std::ostream & operator<<(std::ostream &stream, const ODE_state & av);
 std::ostream & operator<<(std::ostream &stream, const ODE_vector & vector);
 
 #endif // __ODE_H__
+
+// Local Variables:
+// c-file-style: "stroustrup"
+// End:

@@ -42,51 +42,108 @@ using namespace arma;
 void Topography::genNetwork() {
 
     // summary:
-        // randomly sample patch coordinates from uniform distribution, store in network
-        // coordinates are ranked in order of norm (vector distance from origin)
+    // randomly sample patch coordinates from uniform distribution, store in network
+    // coordinates are ranked in order of norm (vector distance from origin)
 
     // required members:
-        // no_nodes - number of nodes in spatial network
-        // randGraph - select random planar graph (T) or regular lattice (F)
+    // no_nodes - number of nodes in spatial network
+    // randGraph - select random planar graph (T) or regular lattice (F)
 
     // output:
-        // network - cartesian coordinates of spatial network
+    // network - cartesian coordinates of spatial network
 
     // external function calls:
-        // genDistMat()
-        // genAdjMat()
+    // genDistMat()
+    // genAdjMat()
+
+    if (xMatFileName.length() == 0) { // generate network
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////// Sample coordinates of patches /////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    if (network.n_rows == 0) {
-        if (randGraph) { // generate random graph
-            vec xcoord = sqrt(no_nodes) * randi<vec>(no_nodes, distr_param(0, 100)) /
-                         100; // integer distribution used to fix no decimal places
-            vec ycoord = sqrt(no_nodes) * randi<vec>(no_nodes, distr_param(0, 100)) / 100;
-            network = join_horiz(xcoord, ycoord);
-        } else { // generate regular lattice
-            vec xcoord;
-            xcoord = linspace(0, sqrt(no_nodes), sqrt(no_nodes));
-            network.set_size(no_nodes, 2);
-            int i, j, k = 0;
-            for (i = 0; i < xcoord.n_rows; i++) { // grid expand algorithm
-                for (j = 0; j < xcoord.n_rows; j++) {
-                    network(k, 0) = xcoord(i);
-                    network(k, 1) = xcoord(j);
-                    k++;
+        if (network.n_rows == 0) {
+            if (randGraph) { // generate random graph
+                vec xcoord = sqrt(no_nodes) * randu(no_nodes);
+                vec ycoord = sqrt(no_nodes) * randu(no_nodes);
+                network = join_horiz(xcoord, ycoord);
+            } else { // generate regular lattice
+                vec xcoord;
+                xcoord = linspace(0, sqrt(no_nodes) - 1, sqrt(no_nodes));
+                network.set_size(no_nodes, 2);
+                int i, j, k = 0;
+                for (i = 0; i < xcoord.n_rows; i++) { // grid expand algorithm
+                    for (j = 0; j < xcoord.n_rows; j++) {
+                        network(k, 0) = xcoord(i);
+                        network(k, 1) = xcoord(j);
+                        k++;
+                    }
                 }
             }
-        }
 
-        if (distMat.n_rows == 0) {
-            genDistMat(); // generate distance matrix
+            if (adjMat.n_rows == 0) {
+                genAdjMat(); // generate adjacency matrix
+            }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////// List nodes in order of vector norm  ///////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            vec norm(no_nodes); // generate vector of vector norms of nodes for network ordering
+            for (int i = 0; i < no_nodes; i++) {
+                norm(i) = sqrt(pow(network(i, 0) + network(i, 1), 2));
+            }
+            network = join_horiz(network, norm);
+
+            int end = no_nodes - 1;
+            rowvec swap;
+            colvec swap_col;
+//        for (int j = end - 1; j > 0; j--) { // vector ordering algorithm
+//            for (int i = 0; i < end; i++) {
+//                if (network(i, 2) > network(i + 1, 2)) {
+//                     reorder network
+//                    swap = network.row(i + 1);
+//                    network.row(i + 1) = network.row(i);
+//                    network.row(i) = swap;
+
+            // reorder adjacency - THIS NEEDS TO BE DEBUGGED
+//                    swap = adjMat.row(i + 1);
+//                    swap_col = adjMat.col(i + 1);
+//                    adjMat.row(i + 1) = adjMat.row(i);
+//                    adjMat.col(i + 1) = adjMat.col(i);
+//                    adjMat.row(i) = swap;
+//                    adjMat.col(i) = swap_col;
+//                }
+//            }
+//            end--;
+//        }
+            network.shed_col(2);
+
+            if (distMat.n_rows == 0) {
+                genDistMat(); // generate distance matrix
+            }
+            if (adjMat.n_rows == 0) {
+                genAdjMat(); // generate adjacency matrix
+            }
+
+            fVec.zeros(no_nodes); // initialize indicator vector
         }
-        if (adjMat.n_rows == 0) {
-            genAdjMat(); // generate adjacency matrix
-        }
-        fVec.zeros(no_nodes); // initialize indicator vector
+    } else { // import network
+        cout << "\nImporting network " << xMatFileName << endl;
+        mat X;
+        X.load(xMatFileName);
+        network = X;
+        no_nodes = X.n_rows;
+        genDistMat();
+        genAdjMat();
+    }
+
+    if (scMatFileName.length() != 0) { // import scaling matrix
+        cout << "\nImporting scaling matrix " << scMatFileName << endl;
+        mat Sc;
+        Sc.load(scMatFileName);
+        scVec_prime = Sc.col(0);
+        scVec = Sc.col(1);
     }
 }
 
@@ -122,13 +179,13 @@ void Topography::genDistMat() {
 void Topography::genAdjMat() {
 
     // summary:
-    // generate the adjacency matrix of the spatial network
+        // generate the adjacency matrix of the spatial network
 
     // required members:
-    // gabriel - select edge assignement using Gabriel algorithm (https://en.wikipedia.org/wiki/Gabriel_graph) (T) or complete graph (F)
+        // gabriel - select edge assignement using Gabriel algorithm (https://en.wikipedia.org/wiki/Gabriel_graph) (T) or complete graph (F)
 
     // output:
-    // adjMat - unweighted graph adjacency matrix
+        // adjMat - unweighted graph adjacency matrix
 
     adjMat.zeros(no_nodes,no_nodes); // initialize adjMat
 
@@ -223,29 +280,27 @@ void Topography::genEnvironment() {
         // envMat - matrix of environmental distribution vectors, dimensions (envVar x no_nodes)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////// Generate and decompose covariance matrix /////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    double mu = 0.0; // mean of distribution set to zero
-    mat SIGMA, UMat, sqrt_LAMBDA; // objects for storing eigenvalues/vectors
-    vec lambda;
-    SIGMA = var_e * exp(-1 * distMat / phi); // covariance matrix
-    eig_sym(lambda, UMat, SIGMA); // eigendecomposition
-    lambda(find(lambda < 0)).zeros(); // remove numerical errors, should be no eigenvalues < 0
-    sqrt_LAMBDA.zeros(no_nodes, no_nodes);
-    sqrt_LAMBDA.diag() = sqrt(lambda); // diagonal matrix of square rooted eigenvalues
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////// Sample from envVar random fields /////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    vec z, eRow;
+    vec zVec, eRow;
     envMat.set_size(envVar, no_nodes); // initialize enviroment object
     for (int i=0; i<envVar; i++) {
-        z.randn(no_nodes); // random normal variables
-        eRow = mu + (UMat * sqrt_LAMBDA) * z; // sample from random field
+        zVec.randn(no_nodes); // random uniform variables
+        eRow = (sigEVec * sigEVal) * zVec; // sample from random field
+//        eRow -= eRow.min(); // translate e_min to 0
+//        eRow /= eRow.max(); // rescale to range [0,1]
         envMat.row(i) = eRow.t(); // store in environment object
     }
+}
+
+void Topography::genTempGrad() {
+    // summary: ...
+    envMat.reset();
+    rowvec T_x(no_nodes);
+    double T_grad = 1 / sqrt((double) no_nodes);
+    T_x = T_int - T_grad * network.col(0).t();
+    envMat = T_x; // define linear temperature gradient in single dimension
 }
 
 void Topography::genDomainDecomp(mat netImprtd) {
@@ -412,11 +467,15 @@ void Topography::genDomainDecomp(mat netImprtd) {
         adjMat.reset();
         printf("\rGenerating cartesian coordinates and distance matrix without decomposition... ");
         genNetwork();
-        genDistMat();
-        genAdjMat();
+//        genDistMat(); // done in genNetwork
+//        genAdjMat();
     }
 
     if (envVar != 0) { // generate enviroment
         genEnvironment();
     }
 }
+
+// Local Variables:
+// c-file-style: "stroustrup"
+// End:

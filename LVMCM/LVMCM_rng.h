@@ -30,3 +30,7 @@ namespace LVMCM_rng
 }
 
 #endif //SETC_LVMCM_RNG_H
+
+// Local Variables:
+// c-file-style: "stroustrup"
+// End:

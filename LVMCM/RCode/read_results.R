@@ -5,8 +5,13 @@ readMatrix <- function(name){
 }
 
 readResults <- function(prefix, rep) {
-  cat("Reading output generated", 
-      as.character(file.info(paste0(prefix, 'bMat', rep, '.mat'))$ctime), "\n")
+  BFile <- paste0(prefix, 'bMat', rep, '.mat')
+  if(file.exists(BFile)){
+    cat("Reading output generated", 
+        as.character(file.info(BFile)$ctime), "\n")
+  }else{
+    warning("File ",BFile," not found")
+  }
   l <-
     list(
       B = NULL,
@@ -68,6 +73,7 @@ readResults <- function(prefix, rep) {
     }
     if(file.exists(paste0(prefix, 'params', rep, '.mat'))) {
       l$para = readMatrix(paste0(prefix, 'params', rep, '.mat'))
+      rownames(l$para) <- l$para[,1]
     } else {
       warning("Model parameters not found")
     }

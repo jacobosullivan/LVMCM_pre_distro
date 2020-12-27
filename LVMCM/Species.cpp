@@ -97,6 +97,249 @@ mat Species::genRVec(rowvec zVecExt) {
     return(r_i.t()); // return row vector of intrisic growth rates
 }
 
+mat Species::genRVecTemp() {
+
+    // summary:
+    // each species is assigned a random temperature optimum T_i and autocorrelated vector of intrinsic growth rates S
+    // growth rate vector R then defined as S - (T(x) - T_i)^2
+    // T(x) = T_int - sqrt(N)*x_1 where x_1 is first component of the cartesian coordinates of the node x
+
+    // required members:
+    // topo.T_int - intercept of the temperature distribution - can be 'dialed' to model temperature shifts
+
+    // required methodsL
+    // Species::genRVec()
+
+    // output:
+    // updates to tMat - matrix of species temperature optima
+    // r_i - spatially autocorrelated growth rate vector
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////// Sample specific temperature optima ////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    rowvec T_i;
+    T_i.randu(1);
+    T_i(0) *= topo.T_int; // randomly sample specific temperature optimum in range 0 <= T_i <= T_int
+    rowvec T_iVec(topo.network.n_rows);
+    T_iVec.fill(T_i(0));
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////// Generate spatially autocorrelated noise /////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    rowvec s_i(topo.no_nodes);
+    s_i = genRVec(); // generate spatially autocorrelated abiotic random field
+
+    if (sMat.n_rows == 0) {
+        sMat.set_size(1,topo.no_nodes);
+        sMat = s_i;
+    } else {
+        sMat = join_vert(sMat, s_i);
+    }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////// Generate growth rate vector ///////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    rowvec r_i(topo.no_nodes);
+
+    if (omega > 0) { // omega fixed for all species
+
+        double parab_width = pow(2/omega, 2); // calculate width parameter for parabolic temperature response function
+        r_i = s_i - parab_width * pow(topo.envMat - T_iVec,2); // r_i generated using quadratic off-set from temperature optimum function
+        uvec neg_growth = find(r_i < -1);
+        r_i.elem(neg_growth).fill(-1); // set negative growth rates to zero for computation efficiency - result identical
+
+        if (tMat.n_rows == 0) {
+            tMat.set_size(1,1);
+            tMat.row(0) = T_i;
+        } else {
+            tMat = join_vert(tMat, T_i);
+        }
+    } else {
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////// Sample species temperature niche width /////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        // omega sampled from a discrete uniform distribution
+        // values chosen set such that positive domain of the temperature niche covers a fraction p of the landscape
+
+        bool discr_niche_width = false;
+        double parab_width; // parabola width parameter
+        double omega_i; // proportion of landscape covered by positive domain of parabola
+
+        if (discr_niche_width) {
+
+            // discrete integer random numbers
+            typedef boost::random::mt19937 RandomIntGenerator;
+            typedef boost::uniform_int<> UnifIntDistribution;
+            typedef boost::variate_generator<RandomIntGenerator &, UnifIntDistribution> Generator;
+
+
+            if (0) { // still testing the number of discrete width classes:
+                // generate integers in range 1-3
+                Generator getRandomInt(LVMCM_rng::boost_rng, UnifIntDistribution(1, 3));
+                int disc_spat_niche = getRandomInt(); // niche width class for species i
+
+                switch (disc_spat_niche) {
+                    case 1:
+                        parab_width = 100;
+                        omega_i = 0.2;
+                        break;
+                    case 2:
+                        parab_width = 25;
+                        omega_i = 0.4;
+                        break;
+                    case 3:
+                        parab_width = 11.1;
+                        omega_i = 0.6;
+                        break;
+                }
+            } else {
+                // generate integers in range 1-5
+                Generator getRandomInt(LVMCM_rng::boost_rng, UnifIntDistribution(1, 5));
+                int disc_spat_niche = getRandomInt(); // niche width class for species i
+
+                switch (disc_spat_niche) {
+                    case 1:
+                        parab_width = 400;
+                        omega_i = 0.1;
+                        break;
+                    case 2:
+                        parab_width = 100;
+                        omega_i = 0.2;
+                        break;
+                    case 3:
+                        parab_width = 44.4;
+                        omega_i = 0.3;
+                        break;
+                    case 4:
+                        parab_width = 25;
+                        omega_i = 0.4;
+                        break;
+                    case 5:
+                        parab_width = 16;
+                        omega_i = 0.5;
+                        break;
+                }
+            }
+        } else { // sample omega_i uniformly and calculate parab_width
+
+            vec p_i(1);
+            p_i.randu();
+            omega_i = p_i(0);
+            parab_width = pow(2/omega_i, 2);
+
+        }
+
+        r_i = s_i - parab_width * pow(topo.envMat - T_iVec,2); // r_i generated using quadratic off-set from temperature optimum function
+        uvec neg_growth = find(r_i < -1);
+        r_i.elem(neg_growth).fill(-1); // set negative growth rates to zero for computation efficiency - result identical
+
+        if (tMat.n_rows == 0) { // species temperature niche width stored in second column of tMat
+            tMat.set_size(1,2); // include non-uniform temperature niche width
+            tMat(0,0) = T_i(0);
+            tMat(0,1) = omega_i;
+        } else {
+            rowvec T_niche_i(2); // include non-uniform temperature niche width
+            T_niche_i(0) = T_i(0);
+            T_niche_i(1) = omega_i;
+            tMat = join_vert(tMat, T_niche_i);
+        }
+    }
+
+    return (r_i);
+}
+
+mat Species::genRVecQuad() {
+
+    // summary:
+    // each species is assigned random environmental optima g_ij
+    // growth rate vector R then defined as R_i = R0 - s_k(E_k - g_ik)^2
+    // s_k is the kth element of the vector which contains the quadratic
+    // shape parameters i.e. the sensitivity to the kth environmental variable
+    // In order to centre the distribution on 1, I set R0=0, then subtract mean R_i
+    // and add 1 to each new vector
+
+    // required members:
+    // topo.sVec - quadratic shape parameters, randomly sampled when environment generated
+    // topo.envMat - Nxl matrix of autocorrelated environmental variables
+
+    // required methods:
+
+    // output:
+    // updates to gMat - matrix of species temperature optima
+    // r_i - spatially autocorrelated growth rate vector
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////// Sample specific environmental optima ///////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    rowvec g_ik;
+    g_ik.randu(topo.envVar); // gen l random uniform variables
+    g_ik *= (2*delta_g); // scale range of g_ik
+    g_ik -= delta_g; // translate range of g_ik
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////// Generate growth rate vector ///////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    rowvec r_i(topo.no_nodes);
+    r_i.ones(); // R0 set to one for all species
+    for (int k=0; k<topo.envVar; k++) {
+        rowvec emg = topo.envMat.row(k) - g_ik(k);
+//        rowvec wn;
+//        wn.randn(topo.no_nodes);
+//        wn *= sigma_r;
+//        r_i -= topo.skVec(k)*(emg%emg) + wn; // noise relevant only in non-mechanistic model as it accounts for biotic effects
+        r_i -= topo.skVec(k)*(emg%emg);
+    }
+
+    r_i.elem(find(r_i < -1.0)).fill(-1.0); // set all terms < -1 to -1;
+    // this speeds up simulation since very large negative coefficients are excluded from dynamics;
+    // some weakly negative terms are retained to ensure fast decay outside of enironmental niche.
+
+    if (tMat.n_rows == 0) { // species environmental optima
+        tMat.set_size(1,topo.envVar);
+        tMat.row(0) = g_ik;
+    } else {
+        tMat = join_vert(tMat, g_ik);
+    }
+
+    return (r_i);
+}
+
+void Species::updateRVecTemp() {
+    // summary:
+    // T_int (intercept of temperature gradient) externally updated to model regional climate warming
+    // updates rMat to reflect abiotic change
+
+    topo.genTempGrad();
+    mat rMat_cc(rMat.n_rows, rMat.n_cols);
+    mat envMat_SN(rMat.n_rows, rMat.n_cols), tMat_SN(rMat.n_rows, rMat.n_cols);
+    for (int i=0; i<envMat_SN.n_rows; i++) {
+        envMat_SN.row(i) = topo.envMat.row(0);
+        tMat_SN.row(i).fill(tMat(i,0));
+    }
+
+    if (omega > 0) { // niche widths fixed for all species
+        rMat_cc = sMat - omega * pow(envMat_SN - tMat_SN,2); // r_i generated using quadratic off-set from temperature optimum function
+    } else {
+        mat rMat_t = pow(envMat_SN - tMat_SN,2);
+        for (int i=0; i<rMat_t.n_rows; i++) {
+            rMat_t.row(i) = tMat(i,1) * rMat_t.row(i); // include non-uniform niche width
+        }
+        rMat_cc = sMat - rMat_t; // r_i generated using quadratic off-set from temperature optimum function
+    }
+
+    uvec neg_growth = find(rMat_cc < 0);
+    rMat_cc.elem(neg_growth).fill(-1); // set negative growth rates to zero for computation efficiency - result identical
+    rMat = rMat_cc; // over-write growth rate matrix
+
+}
+
 void Species::ouProcess() {
 
     // summary:
@@ -176,26 +419,26 @@ mat Species::genRVecERF() {
 void Species::invade(int trophLev, bool invTest) {
 
     // summary:
-    // generate invader by sampling numerical traits and updating model matrices
+        // generate invader by sampling numerical traits and updating model matrices
 
     // arguments:
-    // port - node to which invader is introduced
-    // trophLev - select producer (0) or consumer (1) species
-    // invTest - if preparing matrices for invader testing, coupling of invader->residents is suppressed
+        // port - node to which invader is introduced
+        // trophLev - select producer (0) or consumer (1) species
+        // invTest - if preparing matrices for invader testing, coupling of invader->residents is suppressed
 
     // required members:
-    // c1, c2 - interspecific competition parameters
-    // rho - consumer mortality rate
-    // sigma - standard deviation log-normal attack rate distribution
-    // alpha - base attack rate
-    // pProducer - probability of invading a producer species, set to zero for competitive model
-    // emRate - emigration rate
-    // dispL - dispersal length
-    // prodComp - select coupled (T), uncoupled (F) producer dynamics
-    // discr_c_ij - select discrete (T), continuous (F - beta distribution) competition coefficients
+        // c1, c2 - interspecific competition parameters
+        // rho - consumer mortality rate
+        // sigma - standard deviation log-normal attack rate distribution
+        // alpha - base attack rate
+        // pProducer - probability of invading a producer species, set to zero for competitive model
+        // emRate - emigration rate
+        // dispL - dispersal length
+        // prodComp - select coupled (T), uncoupled (F) producer dynamics
+        // discr_c_ij - select discrete (T), continuous (F - beta distribution) competition coefficients
 
     // output:
-    // updates to matrices bMat_p, rMat, cMat, bMat_c, aMat
+        // updates to matrices bMat_p, rMat, cMat, bMat_c, aMat
 
     double inv = 1e-6; // invasion biomass
 
@@ -205,12 +448,12 @@ void Species::invade(int trophLev, bool invTest) {
 ///////////////////////////////////////////////// Add row to bMat_p ////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        if (bMat_p.n_rows == 0) {
+        if (bMat_p.n_rows == 0) { // replace with insert rows need to set n cols at initialization
             bMat_p.set_size(1, topo.network.n_rows);
             bMat_p.fill(inv);
         } else {
-            bMat_p.resize(bMat_p.n_rows + 1, topo.network.n_rows);
-            bMat_p.row(bMat_p.n_rows - 1).fill(inv);
+            bMat_p.insert_rows(S_p+I_p,1);
+            bMat_p.row(S_p+I_p).fill(inv);
         }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -223,11 +466,33 @@ void Species::invade(int trophLev, bool invTest) {
             } else {
                 rMat = join_vert(rMat, genRVec());
             }
-        } else { // explicitly modelled environment
+        } else if (topo.T_int != -1.0) {
             if (rMat.n_rows == 0) {
-                rMat = genRVecERF();
+                rMat = genRVecTemp();
             } else {
-                rMat = join_vert(rMat, genRVecERF());
+                rMat = join_vert(rMat, genRVecTemp());
+            }
+        } else { // explicitly modelled environment
+            if (topo.skVec(0) > 0.0) {
+                if (rMat.n_rows == 0) {
+                    rMat = genRVecQuad();
+                } else {
+                    rMat = join_vert(rMat, genRVecQuad());
+                }
+            } else {
+                if (rMat.n_rows == 0) {
+                    rMat = genRVecERF();
+                } else {
+                    rMat = join_vert(rMat, genRVecERF());
+                }
+            }
+        }
+
+        if (topo.consArea_bin.n_rows > 0) {
+            if (topo.consArea_multiplicative) {
+                rMat.row(rMat.n_rows - 1) %= topo.consArea_bin.t();
+            } else {
+                rMat.row(rMat.n_rows - 1) -= topo.consArea_bin.t();
             }
         }
 
@@ -238,136 +503,93 @@ void Species::invade(int trophLev, bool invTest) {
         if (emRate < 0) { // sample emigration rate for uniform distribution
             vec emRate_i(1);
             emRate_i.randu();
-//            emRate_i(0) = 0.1;
             if (emMat_p.n_rows == 0) {
                 emMat_p = emRate_i;
             } else {
-                emMat_p = join_vert(emMat_p, emRate_i);
+                emMat_p.insert_rows(S_p+I_p,1);
+                emMat_p.row(S_p+I_p-1) = emRate_i;
             }
         }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////// Add row to aMat ///////////////////////////////////////////////////
+///////////////////////////////////////////////// Add row/col to cMat //////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        if (pProducer < 1.0) { // only construct aMat in bipartite model
-            if (aMat.n_rows == 0) { // a_ij = a_0 * exp(sigma * epsilon_ij)
-                rowvec a_pc = randn<rowvec>(bMat_c.n_rows);
-                a_pc *= sigma;
-                a_pc = alpha * exp(a_pc);
-
-                rowvec a_connect_rand = randu<rowvec>(bMat_c.n_rows);
-                a_pc.elem(find(a_connect_rand > a_connectance)).zeros();
-
-                aMat = a_pc;
-            } else {
-                aMat.resize(aMat.n_rows + 1, aMat.n_cols);
-                rowvec a_pc = randn<rowvec>(aMat.n_cols);
-                a_pc *= sigma;
-                a_pc = alpha * exp(a_pc);
-
-                rowvec a_connect_rand = randu<rowvec>(aMat.n_cols);
-                a_pc.elem(find(a_connect_rand > a_connectance)).zeros();
-
-                aMat.row(aMat.n_rows - 1) = a_pc;
-            }
-        }
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////// Add row to cMat ///////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        cMat.insert_rows(S_p+I_p,1); // row/col added even in case prodComp = false, however matrix operations not performed
+        cMat.insert_cols(S_p+I_p,1);
 
         if (prodComp) { // generate non-zero interspecific competition terms
+
             if (discr_c_ij) { // sample from discrete distribution
-                if (cMat.n_rows == 0) {
-                    cMat.set_size(1, 1);
-                    cMat(0, 0) = 1.0;
-                } else {
-                    boost::random::binomial_distribution<int> distribution(1,c2);
-                    cMat.resize(cMat.n_rows + 1, cMat.n_cols + 1);
-                    for (int i = 0; i < cMat.n_cols; i++) {
-                        cMat(cMat.n_rows - 1, i) = c1 * distribution(LVMCM_rng::boost_rng);
-                    }
-                    if (invTest) { // set col / diag to zero for invader testing
-                        for (int i = 0; i < cMat.n_rows; i++) {
-                            cMat(i, cMat.n_cols - 1) = 0;
-                        }
-                        cMat(cMat.n_rows - 1, cMat.n_cols - 1) = 0.0;
+
+                boost::random::binomial_distribution<int> distribution(1,c2);
+                for (int i=0; i<S_p+I_p; i++) {
+                    cMat(S_p+I_p, i) = c1 * distribution(LVMCM_rng::boost_rng);
+                    if (symComp) {
+                        cMat(i, S_p+I_p) = cMat(S_p+I_p, i);
                     } else {
-                        for (int i = 0; i < cMat.n_rows; i++) {
-                            cMat(i, cMat.n_cols - 1) = c1 * distribution(LVMCM_rng::boost_rng);
-                        }
-                        cMat(cMat.n_rows - 1, cMat.n_cols - 1) = 1.0;
+                        cMat(i, S_p+I_p) = c1 * distribution(LVMCM_rng::boost_rng);
                     }
                 }
+
             } else { // sample from continuous (beta) distribution
-                if (cMat.n_rows == 0) {
-                    cMat.set_size(1, 1);
-                    cMat(0, 0) = 1.0;
-                } else {
-                    typedef boost::random::mt19937 RandomNumberGenerator;
-                    typedef boost::random::beta_distribution<> BetaDistribution;
-                    typedef boost::variate_generator<RandomNumberGenerator&, BetaDistribution> Generator;
-                    BetaDistribution distribution(c1,c2);
-                    Generator getRandomNumber(LVMCM_rng::boost_rng,distribution);
-                    cMat.resize(cMat.n_rows + 1, cMat.n_cols + 1);
-                    for (int i = 0; i < cMat.n_cols; i++) {
-                        cMat(cMat.n_rows - 1, i) = getRandomNumber();
-                    }
-                    if (invTest) {
-                        for (int i = 0; i < cMat.n_rows; i++) {
-                            cMat(i, cMat.n_cols - 1) = 0;
-                        }
-                        cMat(cMat.n_rows - 1, cMat.n_cols - 1) = 0.0;
+
+                typedef boost::random::mt19937 RandomNumberGenerator;
+                typedef boost::random::beta_distribution<> BetaDistribution;
+                typedef boost::variate_generator<RandomNumberGenerator&, BetaDistribution> Generator;
+                BetaDistribution distribution(c1,c2);
+                Generator getRandomNumber(LVMCM_rng::boost_rng,distribution);
+                for (int i=0; i<S_p+I_p; i++) {
+                    cMat(S_p+I_p, i) = c1 * distribution(LVMCM_rng::boost_rng);
+                    if (symComp) {
+                        cMat(i, S_p+I_p) = cMat(S_p+I_p, i);
                     } else {
-                        for (int i = 0; i < cMat.n_rows; i++) {
-                            cMat(i, cMat.n_cols - 1) = getRandomNumber();
-                        }
-                        cMat(cMat.n_rows - 1, cMat.n_cols - 1) = 1.0;
+                        cMat(i, S_p+I_p) = c1 * distribution(LVMCM_rng::boost_rng);
                     }
                 }
             }
         }
+
+        cMat(S_p+I_p, S_p+I_p) = 1.0;
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////// Add trophic interactions  ////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        if (pProducer < 1.0) { // trophic interaction coefficients 'below' competition matrix
+            if (S_c+I_c > 0) {
+                rowvec a_pc = randn<rowvec>(S_c+I_c);
+                a_pc *= sigma;
+                a_pc = alpha * exp(a_pc);
+                cMat.submat(S_p+I_p, S_p+I_p+1, S_p+I_p, cMat.n_cols-1) = a_pc;
+                cMat.submat(S_p+I_p+1, S_p+I_p, cMat.n_cols-1, S_p+I_p) = a_pc.t();
+            }
+        }
+
+        I_p++;
 
     } else if (trophLev == 1) { // generate consumer
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////// Add row to bMat_c /////////////////////////////////////////////////
+//////////////////////////////////////////////////// Add row to bMat_p /////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        if (bMat_c.n_rows == 0) {
-            bMat_c.set_size(1, topo.network.n_rows);
-            bMat_c.zeros();
-            bMat_c.fill(inv);
-        } else {
-            bMat_c.resize(bMat_c.n_rows + 1, topo.network.n_rows);
-            bMat_c.row(bMat_c.n_rows - 1).fill(inv);
-        }
+        bMat_p.insert_rows(bMat_p.n_rows,1);
+        bMat_p.row(bMat_p.n_rows-1).fill(inv);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////// Add col to aMat //////////////////////////////////////////////////
+///////////////////////////////////////////////// Add row/col to cMat //////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        if (aMat.n_cols == 0) {
-            vec a_pc = randn<colvec>(bMat_p.n_rows);
-            a_pc *= sigma;
-            a_pc = alpha * exp(a_pc);
+        cMat.insert_rows(cMat.n_rows,1);
+        cMat.insert_cols(cMat.n_cols,1);
 
-            vec a_connect_rand = randu<colvec>(bMat_p.n_rows);
-            a_pc.elem(find(a_connect_rand > a_connectance)).zeros();
+        rowvec a_pc = randn<rowvec>(S_p+I_p);
+        a_pc *= sigma;
+        a_pc = alpha * exp(a_pc);
 
-            aMat = a_pc; // dimensional model
-        } else {
-            aMat.resize(aMat.n_rows, aMat.n_cols + 1);
-            vec a_pc = randn<colvec>(aMat.n_rows);
-            a_pc *= sigma;
-            a_pc = alpha * exp(a_pc);
-
-            vec a_connect_rand = randu<colvec>(bMat_p.n_rows);
-            a_pc.elem(find(a_connect_rand > a_connectance)).zeros();
-
-            aMat.col(aMat.n_cols - 1) = a_pc;
-        }
+        cMat.submat(cMat.n_rows-1, 0, cMat.n_rows-1, S_p+I_p-1) = a_pc;
+        cMat.submat(0, cMat.n_cols-1, S_p+I_p-1, cMat.n_cols-1) = a_pc.t();
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////// Add row to emMat ///////////////////////////////////////////////////
@@ -376,44 +598,46 @@ void Species::invade(int trophLev, bool invTest) {
         if (emRate < 0) { // sample emigration rate for uniform distribution
             vec emRate_i(1);
             emRate_i.randu();
-            if (emMat_c.n_rows == 0) {
-                emMat_c = emRate_i;
+            if (emMat_p.n_rows == 0) {
+                emMat_p = emRate_i;
             } else {
-                emMat_c = join_vert(emMat_c, emRate_i);
+                emMat_p.insert_rows(bMat_p.n_rows-1,1);
+                emMat_p.row(emMat_p.n_rows-1) = emRate_i;
             }
         }
+        I_c++;
     }
 }
 
 field<uvec> Species::extinct(int wholeDom, uvec ind_p, uvec ind_c) {
 
     // summary:
-    // scan biomass matrices for regionally extinct species (root) and remove corresponding vectors from model matrices (all processes)
+        // scan biomass matrices for regionally extinct species (root) and remove corresponding vectors from model matrices (all processes)
 
     //arguments:
-    // wholeDom - indicates function called from root process and initiates scan of biomass matrices
-    // ind_p - vector of indices of extinct producers - passed to non-root process for vector removal
-    // ind_p - vector of indices of extinct consumers - passed to non-root process for vector removal
+        // wholeDom - indicates function called from root process and initiates scan of biomass matrices
+        // ind_p - vector of indices of extinct producers - passed to non-root process for vector removal
+        // ind_p - vector of indices of extinct consumers - passed to non-root process for vector removal
 
     // required members:
-    // thresh - detection/extinction threshold
+        // thresh - detection/extinction threshold
 
     // output:
-    // (root) 2D field of producer/consumer extiction indices
-    // updates to matrices bMat_p, rMat, cMat, bMat_c, aMat
+        // (root) 2D field of producer/consumer extiction indices
+        // updates to matrices bMat_p, rMat, cMat, bMat_c, aMat
 
     field<uvec> indReturn(2); // return object - 2D uvec of prod/cons extinction indices
     int countS=0;
     uvec ind_ext; // temporary extinction index
-    int S_tot = bMat_p.n_rows - bMat_c.n_rows; // total species richness
+    int S_tot = bMat_p.n_rows; // total species richness
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////// Check for extinct producers ///////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     if (wholeDom) { // check for extinct species at regional scale
-        ind_p.set_size(bMat_p.n_rows);
-        for (int i=0; i<bMat_p.n_rows; i++) {
+        ind_p.set_size(S_p);
+        for (int i=0; i<S_p; i++) {
             ind_ext = find(bMat_p.row(i) > thresh); // search for present populations
             if (ind_ext.n_rows == 0) {
                 ind_p(countS) = i; // if no populations present, add index to ind_p
@@ -422,7 +646,7 @@ field<uvec> Species::extinct(int wholeDom, uvec ind_p, uvec ind_c) {
         }
         ind_p.resize(countS);
     }
-    indReturn(0) = ind_p; // store extinct produce index
+    indReturn(0) = ind_p; // store extinct producer index
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////// Shed rows/cols model objects ///////////////////////////////////////////////
@@ -437,13 +661,8 @@ field<uvec> Species::extinct(int wholeDom, uvec ind_p, uvec ind_c) {
         if (sMat.n_rows > 0) {
             sMat.shed_row(ind_p(i));
         }
-        if (pProducer < 1){
-            aMat.shed_row(ind_p(i));
-        }
-        if (prodComp) {
-            cMat.shed_row(ind_p(i));
-            cMat.shed_col(ind_p(i));
-        }
+        cMat.shed_row(ind_p(i));
+        cMat.shed_col(ind_p(i));
         if (tMat.n_rows != 0) {
             tMat.shed_row(ind_p(i));
         }
@@ -457,10 +676,10 @@ field<uvec> Species::extinct(int wholeDom, uvec ind_p, uvec ind_c) {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     if (wholeDom) { // as above for consumer species
-        ind_c.set_size(bMat_c.n_rows);
+        ind_c.set_size(S_c);
         countS=0;
-        for (int i=0; i<bMat_c.n_rows; i++) {
-            ind_ext = find(bMat_c.row(i) > thresh);
+        for (int i=rMat.n_rows; i<bMat_p.n_rows; i++) {
+            ind_ext = find(bMat_p.row(i) > thresh);
             if (ind_ext.n_rows == 0) {
                 ind_c(countS) = i;
                 countS++;
@@ -475,11 +694,12 @@ field<uvec> Species::extinct(int wholeDom, uvec ind_p, uvec ind_c) {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     for (int i = ind_c.n_rows - 1; i >= 0; i--) {
-        bMat_c.shed_row(ind_c(i));
-        if (uMat_c.n_rows > 0) {
-            uMat_c.shed_row(ind_c(i));
+        bMat_p.shed_row(ind_c(i));
+        if (uMat_p.n_rows > 0) {
+            uMat_p.shed_row(ind_c(i));
         }
-        aMat.shed_col(ind_c(i));
+        cMat.shed_row(ind_c(i));
+        cMat.shed_col(ind_c(i));
         if (emMat_p.n_rows != 0) {
             emMat_p.shed_row(ind_p(i));
         }
@@ -491,12 +711,12 @@ field<uvec> Species::extinct(int wholeDom, uvec ind_p, uvec ind_c) {
 
     if (sppRichness.n_rows == 0) {
         sppRichness.set_size(1,2);
-        sppRichness(sppRichness.n_rows-1,0) = bMat_p.n_rows;
-        sppRichness(sppRichness.n_rows-1,1) = bMat_c.n_rows;
+        sppRichness(sppRichness.n_rows-1,0) = rMat.n_rows;
+        sppRichness(sppRichness.n_rows-1,1) = bMat_p.n_rows - rMat.n_rows;
     } else { // resize sppRichness vector(s) after each invasion
         sppRichness.resize(sppRichness.n_rows+1,2);
-        sppRichness(sppRichness.n_rows-1,0) = bMat_p.n_rows;
-        sppRichness(sppRichness.n_rows-1,1) = bMat_c.n_rows;
+        sppRichness(sppRichness.n_rows-1,0) = rMat.n_rows;
+        sppRichness(sppRichness.n_rows-1,1) = bMat_p.n_rows - rMat.n_rows;
     }
 
     return(indReturn);
@@ -505,22 +725,31 @@ field<uvec> Species::extinct(int wholeDom, uvec ind_p, uvec ind_c) {
 void Species::genDispMat() {
 
     // summary:
-    // generate the regional dispersal operator
-    // dMat(x,y) = (e / sum_y(exp(-d_xy/l)) * exp(-d_xy/l)
-    // dMat(x,x) = -e
-    // if dMat already exists, regenerate for long distance dispersal perturbation
+        // generate the regional dispersal operator
+        // dMat(x,y) = (e / sum_y(exp(-d_xy/l)) * exp(-d_xy/l)
+        // dMat(x,x) = -e
+        // if dMat already exists, regenerate for long distance dispersal perturbation
+        // dispNorm: 0 - effort weighted; 1 - degree weighted; 2 - passive
 
     // required members:
-    // dispL - dispersal length
-    // emRate - emigration rate
-    // topo.distMat
-    // topo.adjMat
+        // dispL - dispersal length
+        // emRate - emigration rate
+        // topo.distMat
+        // topo.adjMat
 
     // external function calls:
-    // genAdjMat()
+        // genAdjMat()
 
     // output:
-    // dMat_n - regional dispersal operator
+        // dMat_n - regional dispersal operator
+
+    if (dispNorm == 0) {
+        cout  << "(effort normalized dispersal model)..." << endl;
+    } else if (dispNorm == 1) {
+        cout  << "(degree normalized dispersal model)..." << endl;
+    } else if (dispNorm == 2) {
+        cout  << "(passive dispersal model)..." << endl;
+    }
 
     if (topo.no_nodes == 1) {
         dMat_n.set_size(1,1);
@@ -545,6 +774,15 @@ void Species::genDispMat() {
 ///////////////////////////////////////////// Normalise immigration rate ///////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    // In early versions D_xy were normalized by the edge weights such that a greater proportion of biomass
+    // departed toward the nearer adjacent nodes. This weak bias was used to further localize dispersal and
+    // reduce the incidence of numerical errors in the estimation of the Jacobian and the regional interact
+    // ion matrices. However, since the Jacobian method for estimating C assumes a fixed point, this approa
+    // ch is not applicable to steady state dynamics such as seen in the case of a heteroclinic network. In
+    // order that the long distance dispersal connectivity perturbation make sense and that biomasses are b
+    // alanced, this bias should be removed and immigration terms normalized by degree ONLY. MAKE SURE THIS
+    // IS CLEAR IN ALL WRITTEN MATERIAL.
+
     mat kMat(topo.no_nodes, topo.no_nodes); // matrix encoding degree of each patch
     kMat.zeros();
     for (int i=0; i<topo.no_nodes; i++) { // normalise by weight
@@ -552,8 +790,16 @@ void Species::genDispMat() {
         uvec kVec = find(abs(topo.adjMat.col(i)) == 1); // absolute means that new edges (-1) also included
         for (int j=0; j<topo.no_nodes; j++) {
             if (abs(topo.adjMat(i,j)) == 1) {
-                // simple degree normalization
-                kMat(i,j) = emRate / kVec.n_rows;
+                if (dispNorm == 0) {
+                    // 'effort' normalized dispersal matrix
+                    kMat(i,j) = emRate / sum(dMat_n.col(i));
+                } else if (dispNorm == 1) {
+                    // degree normalized dispersal matrix
+                    kMat(i,j) = emRate / kVec.n_rows;
+                } else if (dispNorm == 2) {
+                    // 'passive' dispersal
+                    kMat(i,j) = emRate;
+                }
             }
         }
     }
@@ -563,13 +809,16 @@ void Species::genDispMat() {
     }
     dMat_n(find(topo.adjMat == -1)).fill(1); // required for element-wise multiplication
     dMat_n = kMat % dMat_n; // new edges, if any, assigned e/k (distance independent)
-    dMat_n.diag().fill(-1*abs(emRate)); // the dispersal operator includes the (negative) emigration terms on the diagonal
+    bool minus_e = false; // include -e term from diagonal of D
+    if (minus_e) {
+        dMat_n.diag().fill(-1*abs(emRate)); // the dispersal operator includes the (negative) emigration terms on the diagonal
+    }
 }
 
 void Species::subSet(int domain) {
 
     // summary:
-        // subset model spatially resolved model object by domain decomposition using restriction operators and column indices
+        // subset model by domain decomposition using restriction operators and column indices
         // generate the matrix of fixed unknowns representingan approximation of the subdomain interface
 
     // arguments:
@@ -620,10 +869,6 @@ void Species::subSet(int domain) {
         bMat_p = bMat_p.cols(index);
         rMat = rMat.cols(index);
     }
-    if (bMat_c.n_rows != 0) { // imported objects
-        uMat_c = bMat_c.cols(topo.adjIF);
-        bMat_c = bMat_c.cols(index);
-    }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////// Generate restriction operators for decomposing dispersal operator /////////////////////////////
@@ -646,9 +891,6 @@ void Species::subSet(int domain) {
 
     if (uMat_p.n_rows > 0) {
         uMat_p = uMat_p * dMat_m;
-    }
-    if (uMat_c.n_rows > 0) {
-        uMat_c = uMat_c * dMat_m;
     }
 
     if (topo.distMat.n_rows != 0) {

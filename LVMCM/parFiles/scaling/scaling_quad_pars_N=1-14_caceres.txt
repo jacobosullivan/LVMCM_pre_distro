@@ -1,0 +1,13 @@
+-c 0.3 0.3 -d 5e-1 1e0 -f /data/SBCS-RossbergLab/jack/post_doc/ -i 10000 -n 2 -sk 2 10 10 -p 1.0 -v 1.0 -o 1.1 scaling_caceres
+-c 0.3 0.3 -d 5e-1 1e0 -f /data/SBCS-RossbergLab/jack/post_doc/ -i 10000 -n 3 -sk 2 10 10 -p 1.0 -v 1.0 -o 1.1 scaling_caceres
+-c 0.3 0.3 -d 5e-1 1e0 -f /data/SBCS-RossbergLab/jack/post_doc/ -i 10000 -n 4 -sk 2 10 10 -p 1.0 -v 1.0 -o 1.1 scaling_caceres
+-c 0.3 0.3 -d 5e-1 1e0 -f /data/SBCS-RossbergLab/jack/post_doc/ -i 10000 -n 5 -sk 2 10 10 -p 1.0 -v 1.0 -o 1.1 scaling_caceres
+-c 0.3 0.3 -d 5e-1 1e0 -f /data/SBCS-RossbergLab/jack/post_doc/ -i 10000 -n 6 -sk 2 10 10 -p 1.0 -v 1.0 -o 1.1 scaling_caceres
+-c 0.3 0.3 -d 5e-1 1e0 -f /data/SBCS-RossbergLab/jack/post_doc/ -i 10000 -n 7 -sk 2 10 10 -p 1.0 -v 1.0 -o 1.1 scaling_caceres
+-c 0.3 0.3 -d 5e-1 1e0 -f /data/SBCS-RossbergLab/jack/post_doc/ -i 10000 -n 8 -sk 2 10 10 -p 1.0 -v 1.0 -o 1.1 scaling_caceres
+-c 0.3 0.3 -d 5e-1 1e0 -f /data/SBCS-RossbergLab/jack/post_doc/ -i 10000 -n 9 -sk 2 10 10 -p 1.0 -v 1.0 -o 1.1 scaling_caceres
+-c 0.3 0.3 -d 5e-1 1e0 -f /data/SBCS-RossbergLab/jack/post_doc/ -i 10000 -n 10 -sk 2 10 10 -p 1.0 -v 1.0 -o 1.1 scaling_caceres
+-c 0.3 0.3 -d 5e-1 1e0 -f /data/SBCS-RossbergLab/jack/post_doc/ -i 10000 -n 11 -sk 2 10 10 -p 1.0 -v 1.0 -o 1.1 scaling_caceres
+-c 0.3 0.3 -d 5e-1 1e0 -f /data/SBCS-RossbergLab/jack/post_doc/ -i 10000 -n 12 -sk 2 10 10 -p 1.0 -v 1.0 -o 1.1 scaling_caceres
+-c 0.3 0.3 -d 5e-1 1e0 -f /data/SBCS-RossbergLab/jack/post_doc/ -i 10000 -n 13 -sk 2 10 10 -p 1.0 -v 1.0 -o 1.1 scaling_caceres
+-c 0.3 0.3 -d 5e-1 1e0 -f /data/SBCS-RossbergLab/jack/post_doc/ -i 10000 -n 14 -sk 2 10 10 -p 1.0 -v 1.0 -o 1.1 scaling_caceres

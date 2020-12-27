@@ -48,21 +48,31 @@ using namespace arma;
 //#define SPARSE_IMAT // switch to sparse format
 
 class CommunityDynamics : public ODE_dynamical_object {
+private:
+    // Matrices to be pre-allocated before integration:
+    sp_mat dMat_n_sp;
+    sp_mat dMat_sp;
+    mat prodDisp;
+    mat consDisp;
 public:
 // members
+    bool testing = false; // switch for invader testing (intrasp, disp switched off)
+    int S_p, S_c; // resident species diversity
     // matrix objects
     mat *bMat_p {}; // producer biomass matrix
-    mat *bMat_c {}; // consumer biomass matrix
+//    mat *bMat_c {}; // consumer biomass matrix
     mat *emMat_p {}; // producer biomass matrix
-    mat *emMat_c {}; // consumer biomass matrix
+//    mat *emMat_c {}; // consumer biomass matrix
     const mat *uMat_p {}; // producer interface state
-    const mat *uMat_c {}; // consumer interface state
+//    const mat *uMat_c {}; // consumer interface state
 #ifdef SPARSE_IMAT
     sp_mat *cMat; // producer interaction matrix (sparse)
 #else
     mat *cMat {}; // producer interaction matrix
 #endif
-    mat *aMat {}; // trophic interaction matrix
+    vec *scVec {}; // local interspecific interaction scaling
+    vec *scVec_prime {}; // local intraspecific interaction scaling
+//    mat *aMat {}; // trophic interaction matrix
     mat *rMat {}; // producer growth rate matrix
     mat *efMat {}; // environmental fluctuation matrix
     mat *dMat {}; // regional dispersal operator
@@ -75,7 +85,8 @@ public:
     virtual void write_state_to(ODE_vector & state) const; // reads state variables into ODE_vector 'state'
     virtual void read_state_from(const ODE_vector & state); // writes state to shared memory object bMat_p/c
     virtual int number_of_variables() const; // computes number of state variables
-
+    void prepare_for_integration(); // pre-compute some relevant objects
+    void cleanup_after_integration();
     // (default) constructor
     CommunityDynamics() {}
     // (default) deconstructor
@@ -88,3 +99,7 @@ public:
 };
 
 #endif //LVMCM_COMMUNITYDYNAMICS_H
+
+// Local Variables:
+// c-file-style: "stroustrup"
+// End:

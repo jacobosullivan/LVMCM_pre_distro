@@ -52,10 +52,14 @@ public:
     double var_e; // variance of the environmental distribution (implicit or explicit)
     double phi; // environmental autocorrelation length
     double T_int; // Intercept of linear temperature gradient
+    string xMatFileName; // path to file name for imported network
+    string scMatFileName; // path to file name for imported local scaling
+    vec skVec; // vector of shape parameters defining environmental sensitivity
 
     // switches
     bool randGraph = true; // switch between random graph (1) and lattice (0)
     bool gabriel = true; // switch between gabriel (1) and complete graph (0)
+    bool consArea_multiplicative; // switch for selecting additive of multiplicative for of perturbation in 'developed' area
 
     // matrix objects
     mat network; // x,y coords of nodes
@@ -69,6 +73,10 @@ public:
     uvec adjIF; // adjacent interface nodes
     mat envMat; // envVarxN matrix encoding the spatial distribution in enviromental variables
 
+    vec consArea_bin; // binary vector for allocating conservation area
+    vec scVec; // local interspecific interaction scaling
+    vec scVec_prime; // local intraspecific interaction scaling
+
 // methods
     // topo modelling
     void genNetwork(); // generate random network
@@ -76,6 +84,7 @@ public:
     void genAdjMat(); // generate adjacency matrix
     void genDomainDecomp(mat netImprtd = {}); // domain decomposition algorithm
     void genEnvironment(); // Samples from envVar GRFs and stores values in environment matrix
+    void genTempGrad(); // generate linear temperature gradient T(x) = T_int - sqrt(N)*x
 
 // (default) constructor
     Topography() {}
@@ -85,3 +94,7 @@ public:
 };
 
 #endif //LVMCM_TOPOGRAPHY_H
+
+// Local Variables:
+// c-file-style: "stroustrup"
+// End:

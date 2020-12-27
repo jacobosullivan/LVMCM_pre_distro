@@ -1,0 +1,10 @@
+-c 0.3 0.3 -d 1e-1 1e-2 -f /data/SBCS-RossbergLab/jack/post_doc/ -i 10000 -n 20 -G F -p 1 -sk 1.000 -o 1.1 removalPD
+-c 0.3 0.3 -d 1e-1 2e-2 -f /data/SBCS-RossbergLab/jack/post_doc/ -i 10000 -n 20 -G F -p 1 -sk 1.000 -o 1.2 removalPD
+-c 0.3 0.3 -d 1e-1 3e-2 -f /data/SBCS-RossbergLab/jack/post_doc/ -i 10000 -n 20 -G F -p 1 -sk 1.000 -o 1.3 removalPD
+-c 0.3 0.3 -d 1e-1 4e-2 -f /data/SBCS-RossbergLab/jack/post_doc/ -i 10000 -n 20 -G F -p 1 -sk 1.000 -o 1.4 removalPD
+-c 0.3 0.3 -d 1e-1 5e-2 -f /data/SBCS-RossbergLab/jack/post_doc/ -i 10000 -n 20 -G F -p 1 -sk 1.000 -o 1.5 removalPD
+-c 0.3 0.3 -d 1e-1 1e-2 -f /data/SBCS-RossbergLab/jack/post_doc/ -i 10000 -n 20 -G F -p 1 -sk 10.00 -o 2.1 removalPD
+-c 0.3 0.3 -d 1e-1 2e-2 -f /data/SBCS-RossbergLab/jack/post_doc/ -i 10000 -n 20 -G F -p 1 -sk 10.00 -o 2.2 removalPD
+-c 0.3 0.3 -d 1e-1 3e-2 -f /data/SBCS-RossbergLab/jack/post_doc/ -i 10000 -n 20 -G F -p 1 -sk 10.00 -o 2.3 removalPD
+-c 0.3 0.3 -d 1e-1 4e-2 -f /data/SBCS-RossbergLab/jack/post_doc/ -i 10000 -n 20 -G F -p 1 -sk 10.00 -o 2.4 removalPD
+-c 0.3 0.3 -d 1e-1 5e-2 -f /data/SBCS-RossbergLab/jack/post_doc/ -i 10000 -n 20 -G F -p 1 -sk 10.00 -o 2.5 removalPD

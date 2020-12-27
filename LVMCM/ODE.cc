@@ -427,17 +427,16 @@ void ODE_state::release_integrator(){
 }
 
 ODE_state::ODE_state(ODE_dynamical_object * object) : 
-  ODE_vector(object->number_of_variables()),
-  the_time_since_start(0),
-  the_start_time(object->the_start_time),
-  reltol(default_absolute_tolerance),
-  //  machEnv(M_EnvInit_Serial(this->size())),
-  linear_solver(CVSPGMR), // fastest
-  //linear_solver(DIAG),  // same speed as DENSE when I last tested
-  //linear_solver(DENSE),
-  Jacobian_memory(this->size()),
-  the_dynamics(object),
-  bp_data(0)
+    ODE_vector(object->number_of_variables()),
+    the_time_since_start(0),
+    the_start_time(object->the_start_time),
+    reltol(default_absolute_tolerance),
+    //  machEnv(M_EnvInit_Serial(this->size())),
+    linear_solver(CVSPGMR), // fastest
+    //linear_solver(DIAG),  // same speed as DENSE when I last tested
+    //linear_solver(DENSE),
+    the_dynamics(object),
+    bp_data(0)
 {
   object->prepare_for_integration();
   the_start_time=the_dynamics->current_time;
@@ -456,7 +455,6 @@ ODE_state::~ODE_state()
   the_dynamics->current_time=the_start_time+the_time_since_start;
   the_dynamics->cleanup_after_integration();
   release_integrator();
-  //  M_EnvFree_Serial(machEnv);   /* Free the machine environment memory */
 }
 
 realtype ODE_state::redo_with_shorter_step_size(){
@@ -622,7 +620,6 @@ fixed_point_analyzer::fixed_point_analyzer(ODE_dynamical_object * object,
   ODE_vector(object->number_of_variables()),
   //linear_solver(DENSE), 
   linear_solver(SPGMR), 
-  Jacobian_memory(size()),
   scaling_vector_D_u(N_VNew_Serial(size())),
   scaling_vector_D_F(N_VNew_Serial(size())),
   tmpl(N_VNew_Serial(size())),
@@ -997,3 +994,7 @@ void ODE_dynamical_object::line_print(ODE_vector const & state, ostream &co){
     co << state[i] << " ";
   }
 }
+
+// Local Variables:
+// c-file-style: "stroustrup"
+// End:

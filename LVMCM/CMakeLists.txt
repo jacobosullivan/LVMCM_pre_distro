@@ -82,3 +82,11 @@ IF(MPI_LINK_FLAGS)
     set_target_properties(LVMCM PROPERTIES
             LINK_FLAGS "${MPI_LINK_FLAGS}")
 ENDIF()
+
+# Uncomment if running HPCtoolkit
+#SET(CMAKE_CXX_FLAGS "-g")
+
+# For native compiling opimization
+#SET(CMAKE_CXX_FLAGS "-march=native")
+
+#SET(CMAKE_CXX_FLAGS "-finstrument-functions")

@@ -30,3 +30,7 @@ namespace LVMCM_rng
 //    boost::random::mt19937 boost_rng(rd());
     boost::random::mt19937 boost_rng(1);
 }
+
+// Local Variables:
+// c-file-style: "stroustrup"
+// End:

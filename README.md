@@ -16,13 +16,43 @@ List of dependencies (most recent compatible version):
 To run software in a container environment, build singularity container from defintion file `/LVMCM_src/LVMCM/LVMCM_mpi.def` (debootstrap may be required).
 For details see Singularity docs (https://singularity.lbl.gov/).
 
-### Buid executable
+### Buid executable - GCC compiler
 
 Navigate to the subdirectory `LVMCM_src/LVMCM` and run the following:
 
 ```
 rm -rf build; mkdir build; cd build
 cmake ..
+make VERBOSE=1
+```
+
+### Buid executable - Intel compiler
+
+Intel compilers and dependencies are currently installed natively on the Apocrita cluster (btx188 user space only).
+If attempting to compile in alternative user space, I recommend using GCC as described above unless all dependencies are available.
+Note that using Intel 2020 requires a different CMakeLists.txt file.
+This is currently saved in the LVMCM repo under the filename CMakeLists_int.txt.
+To compile using Intel, first run the following `mv CMakeLists.txt CMakeLists_gcc.txt; mv CMakeLists)int.txt CMakeLists.txt`.
+Intel compilers produce an improvement in run time performance therefore if available these should be used.
+
+From within btx188 userspace, the following commands load the necessary private modules:
+
+```
+# load modules including cmake
+module load use.own
+module load intel intelmpi dependencies cmake
+```
+
+If running from an alternative user space, note the location of the Armadillo and Sundials install files and ensure cmake is pointing to the relevant directories. In the case that depenencies are installed in the folder `$HOME/install` (as in btx188 userspace), the following will build the exectuable:
+
+```
+rm -rf build\_intel; mkdir build_intel; cd build_intel
+cmake .. \
+-DARMADILLO\_LIBRARY=$HOME/install/armadillo/lib64/libarmadillo.so \
+-DSUNDIALS\_NVECSERIAL_LIB:FILEPATH=$HOME/install/sundials2.7/lib/libsundials_nvecserial.so \
+-DSUNDIALS\_KINSOL_LIB:FILEPATH=$HOME/install/sundials2.7/lib/libsundials_kinsol.so \
+-DSUNDIALS\_CVODE_LIB:FILEPATH=$HOME/install/sundials2.7/lib/libsundials_cvode.so \
+-DCMAKE\_BUILD_TYPE=Release
 make VERBOSE=1
 ```
 
@@ -62,35 +92,57 @@ In the latter case a square number of nodes is required.
 
 #### List of program arguments
 
-- `-new`: set to `F` for importing a pre-assembled metacommunity model
-- `-bFile`: the full bath of the biomass matrix for a model to be imported
-- `-invMax`: maximum number of invasions
-- `-tMax`: number of timesteps simulated between each invasion
-- `c_ij`: 2x competition parameter
-- `dispL`: emigration rate and dispersal length parameters
-- `pProd`: probability of invading a producer species, set to <1.0 for bipartite model
+In the parameters below defaults are listed in square brackets
+
+Input parameters:
+- `-a`: trophic link scaling parameter [0.0]
+- `-b`: the full bath of the biomass matrix for a model to be imported [{} (empty string)]
+- `-c`: 2x competition parameter [0.5, 0.5]
+- `-d`: emigration rate and dispersal length parameters [0.1, 0.1]
+- `-dd`: path to storage for iterative domain decomposed solution (testing purposes) [{} (empty string)]
+- `-dn`: select dispersal matrix normalisation - 0: effort normalised; 1: degree normalised; 2: passive dispersal [0]
+- `-e`: the number of explicitly modelled environmental variables [0]
+- `-f`: output folder [{} (empty string)]
+- `-g`: cap on regional diversity (use with caution, if greater that regional limits, assembly with not complete) [0]
+- `-i`: maximum number of invasions [0]
+- `-id`: job ID used for automatic checkpointing ["NA"]
+- `-is`: invasion size (is*S+1 invaders generated in each iteration of the assembly algorithm) [0.05]
+- `-n`: number of nodes [4]
+- `-o`: 3x output variables used in generating file names - a key parameter, experiment name, replicate number [0, DEFAULT, 0]
+- `-p`: spatial autocorrelation of the environment [1]
+- `-pp`: probability of invading a producer species, set to <1.0 for bipartite model [0.0]
+- `-r`: consumer respiration rate parameter [0.0]
+- `-s`: trophic link distribution parameter [0.0]
+- `-si`: Schwartz iteration number and window size [2, 100]
+- `-st`: standard deviation of environmental fluctuations
+- `-t`: number of timesteps simulated between each invasion [500]
+- `-v`: the standard deviation of the environment/growth rate distribution [0.01]
+- `-x`: path to spatial newtork if not random generated (should be Armadillo matrix raw_ascii) [{} (empty string)]
+
+Switches
 - `-C`: set to `F` to switch off interspecific interactions between producer species
-- `-alpha`: trophic link scaling parameter
-- `-sigma`: trophic link distribution parameter
-- `-rho`: consumer respiration rate parameter
-- `Discr`: set to `F` to select continuous (beta) distribution in competitive overlap coefficients
-- `-N`: number of nodes
-- `-Phi`: spatial autocorrelation of the environment
-- `-envVar`: the number of explicitly modelled environmental variables
-- `-var_e`: the standard deviation of the environment/growth rate distribution
-- `-Gab`: if set to `F`, complete graph selected
-- `-Lattice`: if set to `T`, a spatial network modelled using a 2D lattice
-- `-o`: 3x output variables used in generating file names - a key parameter, experiment name, replicate number
+- `-D`: set to `F` to select continuous (beta) distribution in competitive overlap coefficients
+- `-G`: if set to `F`, complete graph selected
 - `-O`: output switch, if set to `F` will not write to file
-- `-f`: output folder
-- `-z`: if set to `F`, all random seeds are set to 1 for reproducibility
+- `-R`: if set to `F`, a spatial network modelled using a 2D lattice
+- `-S`: if set to `T`, model with regularly write to file
+- `-SC`: if set to `T`, select symmetric competition model
+- `-Z`: if set to 2: all random seeds are set to 1 for reproducibility; if set to 1: only random seeds used in generating enviroment set to 1
+
+Perturbation experiments/analysis objects
+- `-F`: fragmentation/conservation area experiment
+- `-H`: harvesting experiment
+- `-K`: interative node/edge removal experiment
+- `-L`: long distance distpersal experiment
+- `-T`: generate long timeseries trajectory
+- `-W`: warming experiment
 
 #### Test implementation
 
 After compilation, navigate to the build folder and the following command:
 
 ```
-./LVMCM -o 1 testComp 1 -N 16 -Phi 10 -Lattice T -invMax 20 -disp 0.2 1.0 -c_ij 0.3 0.3 -var_e 0.1 -tMax 500 -z F -O F"
+./LVMCM -o 1 testComp 1 -n 16 -p 1 -i 100 -d 0.2 1.0 -c 0.3 0.3 -v 0.1 -t 1000 -Z 2 -O F"
 ```
 
 This will assemble a competitive metacommunity of 16 nodes but will not write to file.

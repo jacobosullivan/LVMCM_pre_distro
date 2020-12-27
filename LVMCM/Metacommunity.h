@@ -80,20 +80,28 @@ public:
 
     // switches
     int storeTraj = 0; // 0, turn off; 1, record, don't concatenate; 2, concatenate trajectories for multiple invasions
+    bool compute_averages = false; // when true, unconditionally populate bavMat_p and bavMat_c after standard relaxation
 
     // methods
-    void metaCDynamics(int T, bool dispersal = true); // ODE solver - NxS coupled ODEs - simulation metacommunity dynamics
-    uvec invaderSample(int trophLev, int no_invaders); // ...
-    mat invaderCleanup(int trophLev, uvec posGrowth); // ...
-    void invaderPopulate(int trophLev, mat bInv_max); // ...
+    void metaCDynamics(int T, bool testing = false); // ODE solver - NxS coupled ODEs - simulation metacommunity dynamics
+    uvec invaderSample(int trophLev, int no_invaders); // introduce and test new species
+    mat invaderCleanup(int trophLev, uvec posGrowth); // remove unsuccessful invaders
+    void invaderPopulate(int trophLev, mat bInv_max); // reset biomasses of invaders
+    void envFluct(); // simulate dynamics in context of temporal abiotic turnover
+    void warming(double dTdt, int res, int time); // simulate dynamics in context of regional warming
+    void longDistDisp(int tMax, int edges); // randomly add fast, dispersal between (potentially) distant nodes
+    void consArea(int tMax, int percentLandscape, double phi, int rep, bool write_to_file = false); // model conservation areas using binary random field and simulate dynamics
+    void nodeRemoval(int tMax, int no_removals = 0); //
     void genJacobian(); // generates numerical approximation of Jacobian
     void genCMatReg(double h = 0.001); // simulates harvesting experiment
     void genSourceSink(int tFullRelax = 1000); // switch off dispersal to assign source-sink populations
+    void performanceTest(bool init, int repPer, int S_p = 0, int S_c = 0); // peformance testing of dynamics
     void writePars(int repPer); // write parameters to file for performance testing
 
     // book keeping functions - store, output and import data
     void printParams();
     void outputData();
+    void snapShot();
     void cleanup();
     void importData(string bMat);
 
@@ -108,6 +116,8 @@ public:
             // Metacommunity parameters
             bool a_init,
             string a_bMat,
+            string a_xMat,
+            string a_scMat,
             int a_invMax,
             int a_iterS,
             int a_deltaT,
@@ -120,15 +130,19 @@ public:
             double a_dispL,
             double a_pProducer,
             bool a_prodComp,
+            bool a_symComp,
             double a_alpha,
             double a_sigma,
             double a_sigma_t,
             double a_rho,
             bool a_discr_c_ij,
+            double a_omega,
+            double a_dispNorm,
             // Topograpy parameters
             int a_no_nodes,
             double a_phi,
             int a_envVar,
+            vec a_skVec,
             double a_var_e,
             bool a_randGraph,
             bool a_gabriel,
@@ -165,14 +179,22 @@ public:
             sppPool.dispL = a_dispL;
             sppPool.pProducer = a_pProducer;
             sppPool.prodComp = a_prodComp;
+            sppPool.symComp = a_symComp;
             sppPool.alpha = a_alpha;
             sppPool.sigma = a_sigma;
             sppPool.sigma_t = a_sigma_t;
             sppPool.rho = a_rho;
             sppPool.discr_c_ij = a_discr_c_ij;
+            sppPool.omega = a_omega;
+            sppPool.dispNorm = a_dispNorm;
+            sppPool.topo.xMatFileName = a_xMat;
+            sppPool.topo.scMatFileName = a_scMat;
             sppPool.topo.no_nodes = a_no_nodes;
             sppPool.topo.phi = a_phi;
             sppPool.topo.envVar = a_envVar;
+            if (a_skVec(0) > 0) {
+                sppPool.topo.skVec = a_skVec;
+            }
             sppPool.topo.var_e = a_var_e;
             sppPool.topo.randGraph = a_randGraph;
             sppPool.topo.gabriel = a_gabriel;
@@ -182,27 +204,37 @@ public:
             sppPool.topo.distMat.reset();
             sppPool.topo.adjMat.reset();
 
+
         } else { // import metacommunity model
             importData(a_bMat);
+            sppPool.topo.scMatFileName = a_scMat;
             outputDirectory = a_outputDirectory;
             if (a_invMax != 0) {
-                invMax = a_invMax;
-                cout << "\ninvMax updated" << endl;
+                invMax += a_invMax;
+                cout << "\ninvMax updated to " << invMax << endl;
             }
             if (a_bisec != 0) {
                 sppPool.topo.bisec = a_bisec;
-                cout << "\nbisec updated" << endl;
+                cout << "\nbisec updated to " << sppPool.topo.bisec << endl;
             }
             if (a_iterS != 0) {
                 iterS = a_iterS;
-                cout << "\niterS updated" << endl;
+                cout << "\niterS updated to " << iterS << endl;
             }
             if (a_deltaT != 0) {
                 deltaT = a_deltaT;
-                cout << "\ndeltaT updated" << endl;
+                cout << "\ndeltaT updated to " << deltaT << endl;
+            }
+            if (a_tMax != tMax) {
+                tMax = a_tMax;
+                cout << "\ntMax updated to " << tMax << endl;
             }
         }
     }
 };
 
 #endif //LVMCM_METACOMMUNITY_H
+
+// Local Variables:
+// c-file-style: "stroustrup"
+// End:

@@ -1,0 +1,3 @@
+-n 23 -c 0.3 0.3 -d 5e-1 1e0 -sk 2 10 10 -i 10000 -v 1.0 -f /data/SBCS-RossbergLab/jack/post_doc/ -x /data/home/btx188/LVMCM_src/LVMCM/fitNetwork/X_Caceres2017.mat -sc /data/home/btx188/LVMCM_src/LVMCM/fitNetwork/SC_Caceres2017_c03.mat -o 1 caraces
+-n 23 -c 0.3 0.3 -d 5e-1 1e0 -sk 2 10 10 -i 40000 -v 1.0 -f /data/SBCS-RossbergLab/jack/post_doc/ -x /data/home/btx188/LVMCM_src/LVMCM/fitNetwork/X_Caceres2017.mat -sc /data/home/btx188/LVMCM_src/LVMCM/fitNetwork/SC_Caceres2017_c03.mat -o 2 caraces
+-n 23 -c 0.3 0.3 -d 5e-1 1e0 -sk 2 10 10 -i 100000 -v 1.0 -f /data/SBCS-RossbergLab/jack/post_doc/ -x /data/home/btx188/LVMCM_src/LVMCM/fitNetwork/X_Caceres2017.mat -sc /data/home/btx188/LVMCM_src/LVMCM/fitNetwork/SC_Caceres2017_c03.mat -o 1 caraces

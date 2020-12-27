@@ -1,0 +1,53 @@
+#!/bin/sh
+#$ -cwd
+#$ -pe smp 1
+#$ -l h_rt=00:20:00
+#$ -l h_vmem=0.5G
+#$ -t 1-6 # select lines of parameter file
+
+# copy and edit template shell script
+## set parameter file
+PARFILE="/data/home/btx188/LVMCM_src/LVMCM/Params/tempGrad/tempGrad_pars.csv"
+## format for regular expression
+PARFILE="$(echo $PARFILE | sed 's/\//\\\//g')"
+PARFILE="$(echo $PARFILE | sed 's/\./\\\./g')"
+## set simulation script template file
+TEMPLATE="tempGrad_sub_B.sh"
+## extract job/task ID from environmental variables...
+JB_TSK_ID="$JOB_ID.$SGE_TASK_ID"
+## use to generate file name of similation script
+SHFILE="_$JOB_ID.$SGE_TASK_ID.sh"
+
+# make and navigate into output file directory
+## name by parent job/task ID
+mkdir $JB_TSK_ID
+cd $JB_TSK_ID
+# copy template
+## name by parent job/task ID
+cp ../$TEMPLATE $SHFILE
+## move output/error files current job
+mv ../*[a-z]$JB_TSK_ID .
+
+# edit submission script
+## set parameter file
+sed -i "s/^PARFILE.*/PARFILE\=$PARFILE/" $SHFILE
+## set line number
+START=$((1 + 10 * ( ${SGE_TASK_ID} -1 )))
+END=$((10 * ${SGE_TASK_ID}))
+sed -i "s/START/$START/" $SHFILE
+sed -i "s/END/$END/" $SHFILE
+# set CPU number
+CPU=$((2 ** ( ${SGE_TASK_ID} -1)))
+sed -i "s/CPU/$CPU/" $SHFILE
+# set h_vmem limit
+H_VMEM=$((32/$CPU))
+sed -i "s/H_VMEM/$H_VMEM/" $SHFILE
+# set h_rt limit
+H_RT=$((32/CPU + 2))
+sed -i "s/H_RT/$H_RT/" $SHFILE
+
+# submit simulation job
+echo "Submitting Temperature gradient assembly array job"
+qsub -notify $SHFILE # -notify flag required for signal handler
+
+exit 0
