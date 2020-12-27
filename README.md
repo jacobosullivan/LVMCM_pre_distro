@@ -142,7 +142,7 @@ Perturbation experiments/analysis objects
 After compilation, navigate to the build folder and the following command:
 
 ```
-./LVMCM -o 1 testComp 1 -n 16 -p 1 -i 100 -d 0.2 1.0 -c 0.3 0.3 -v 0.1 -t 1000 -Z 2 -O F"
+./LVMCM -o 1 testComp 1 -n 16 -p 1 -i 100 -d 0.2 1.0 -c 0.3 0.3 -v 0.1 -t 1000 -Z 2 -O F
 ```
 
 This will assemble a competitive metacommunity of 16 nodes but will not write to file.
